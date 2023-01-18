@@ -1,0 +1,93 @@
+﻿@using EDSDoctorsApp.Resources
+
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - Home</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="Sticky/styles/highlights/highlight_orange.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="page">
+        <div class="page-content header-clear pb-0">
+            <div class="page-content header-clear-small">
+                <div class="m-auto w-100 text-center mb-4">
+                    <img class="preload-img img-fluids ps-3 pe-3 " data-src="Sticky/images/eDoctorGroupLight.png" style="width:250px">
+                </div>
+                    <a href="hybrid:GotoMyBookings" data-menu="menu-emergency">
+                        <div class="card card-style mb-3 bg-highlight">
+                            <div class="d-flex">
+                                <div class="ps-2 ms-2 align-self-center">
+                                    <h1 class="pt-2 color-white">@AppResources.MyBookings</h1>
+                                    <p class="font-12 color-white mt-n2 mb-2 opacity-70">
+                                        @AppResources.Manageyourbookingsandmorewithasingletap
+                                    </p>
+                                </div>
+                                <div class="ms-auto me-3 align-self-center">
+                                    <i class="fa fa-calendar-alt color-white fa-2x mt-4 mb-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <a href="hybrid:gotosearchpatients" data-menu="menu-appointment">
+                    <div class="card card-style bg-highlight mb-3">
+                        <div class="d-flex">
+                            <div class="ps-2 ms-2 align-self-center">
+                                <h1 class="pt-2 color-white">@AppResources.Patients</h1>
+                                @*<p class="font-12 color-white mt-n2 mb-2 opacity-70">
+                                    @AppResources.Scheduleanappointmentontherightdayforyou
+                                    </p>*@
+                            </div>
+                            <div class="ms-auto me-3 align-self-center">
+                                <i class="fa fa-search-location color-white fa-2x mt-4 mb-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                    <a href="hybrid:GotoMyProfile" data-menu="menu-hours">
+                        <div class="card card-style bg-highlight">
+                            <div class="d-flex">
+                                <div class="ps-2 ms-2 align-self-center">
+                                    <h1 class="pt-2 color-white">@AppResources.MyProfile</h1>
+                                    <p class="font-12 color-white mt-n2 mb-2 opacity-70">
+                                        @AppResources.Keepyourdatafreshandupdated
+                                    </p>
+                                </div>
+                                <div class="ms-auto me-3 align-self-center">
+                                    <i class="fa fa-user-cog color-white fa-2x mt-4 mb-4"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                <a href="hybrid:DoExit" data-menu="menu-hours">
+                    <div class="card card-style bg-white border-l border-highlight">
+                        <div class="d-flex">
+                            <div class="ps-2 ms-2 align-self-center">
+                                <h1 class="pt-2 color-orange-light">@AppResources.SignOut</h1>
+                                <p class="font-12 color-orange-light mt-n2 mb-2 opacity-70 fw-bold">
+                                    @AppResources.MissYou
+                                </p>
+                            </div>
+                            <div class="ms-auto me-3 align-self-center">
+                                <i class="fa fa-door-open color-orange-light fa-2x mt-4 mb-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+</body>
+</html>

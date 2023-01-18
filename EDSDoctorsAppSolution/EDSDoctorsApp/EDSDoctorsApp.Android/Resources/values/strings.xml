@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="facebook_app_id">176299876392423</string>
+	<string name="facebook_app_name">eDoctor Patients</string>
+	<string name="facebook_login_protocol_scheme">176299876392423</string>
+</resources>

@@ -1,0 +1,695 @@
+@using EDSDoctorsApp
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Helper.EMR
+@using Newtonsoft.Json.Linq
+@using Xamarin.Essentials
+@using Newtonsoft.Json
+@model (List<GroupExaminationVm>,string,string,List<DropDownListModel>,List<DropDownListModel>,List<DropDownListModel>,List<DropDownListModel>,string,string)
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - Patients EMR</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    <style>
+        .timeline-item-content:first-of-type,
+        .timeline-item-content-full:first-of-type {
+            margin: 0 35px 30px 65px;
+        }
+    </style>
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center " id="headerScope">
+            <p class="header-title">EMR</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div id="footer-bar" class="footer-bar-1">
+            <a href="hybrid:gotobasicinfo"><i class="fa fa-info-circle"></i><span>Basic Info</span></a>
+            <a href="hybrid:gotovitalsigns"><i class="fa fa-heartbeat"></i><span>Vital Signs</span></a>
+            <a href="hybrid:gotogallery"><i class="fa fa-images"></i><span>Gallery</span></a>
+        </div>
+        <div class="page-contentX header-clear-large">
+
+            <div class="timeline-cover timeline-cover-center">
+                <div data-card-height="150" class="card shadow-l preload-img" data-src="" style="height: 150px;">
+                    <div class="card-center text-center">
+                        <p class="color-white mb-n3 pb-0 text-truncate px-4 font-16">@Model.Item3</p>
+                        <h2 class="color-white pt-3 pb-3 text-truncate px-4">@Model.Item2</h2>
+                    </div>
+
+                    <div class="card-overlay bg-orange-dark opacity-80"></div>
+                    <div class="card-overlay bg-gradient-fade opacity-10"></div>
+                    <!-- <div class="card-overlay bg-gradient-fade-small"></div> -->
+                </div>
+            </div>
+
+            <div class="timeline-body" style="margin-top: 100px;">
+                <!-- Tabs -->
+                <div class="card card-style mt-n4" style="z-index: 3;" id="tabInScrollY">
+                    <div class="content">
+                        <div class="tab-controls tabs-small tabs-rounded" data-highlight="bg-orange-dark">
+                            <a href="#" class="no-effect font-10" data-active data-bs-toggle="collapse"
+                               data-bs-target="#tab-5"><i class="fa fa-tasks"></i> Timeline</a>
+                            <a href="#" class="no-effect font-10" data-bs-toggle="collapse" data-bs-target="#tab-6">
+                                <i class="fa fa-history"></i> Medical History
+                            </a>
+                            <a href="#" class="no-effect font-10" data-bs-toggle="collapse" data-bs-target="#tab-7">
+                                <i class="fa fa-chart-line"></i> Review & Systems
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content -->
+                <div class="content" id="tab-group-2">
+                    <a href="hybrid:savepatientemr?PatientID=@Model.Item9&PatientMRno=@Model.Item3&RiskFactors=&ChronicDiseases=&Phobias=&PatientsMedicalHistory=&Implants=&SocialHabits=&SocialNotes=&SurgeryNotes=&Alcohol=&Coffee=&Tea=&Smoker=&RecreationalDrugs=&OccupationalHazards=&ReviewOptions="
+                       class="float-end position-fixed btn btn-m btn-full shadow-bg shadow-bg-m mb-3 rounded-s text-uppercase font-900 shadow-s bg-green-dark btn-icon text-start"
+                       style="bottom: 8%;margin:30%" onclick="updateURLParameters(this)">
+                        <!-- <i class="fa fa-check font-15 text-center"></i> -->
+                        <i class="fa fa-save font-15 text-center"></i>Save
+                        <!-- <span class="badge bg-white color-black float-end ms-4 me-n2 mt-1">4</span> -->
+                    </a>
+                    <!-- Time Line -->
+                    <div data-bs-parent="#tab-group-2" class="collapse show" id="tab-5">
+                        <!-- Add New Examination Floating Button -->
+                        @*<a data-menu="newExamination"
+                            class="float-end position-fixed btn btn-m btn-full shadow-bg shadow-bg-m mb-3 rounded-s text-uppercase font-900 shadow-s bg-orange-dark btn-icon text-start"
+                            style="right:30px;bottom: 10%;">
+                            <!-- <i class="fa fa-check font-15 text-center"></i> -->
+                            <i class="fa fa-plus-circle font-15 text-center"></i>New Examination
+                            <!-- <span class="badge bg-white color-black float-end ms-4 me-n2 mt-1">4</span> -->
+                            </a>*@
+
+
+
+                        @*                        <a class="float-end position-fixed btn-full"s href="hybrid:savepatientemr?PatientID=@Model.Item9&PatientMRno=@Model.Item3&RiskFactors=&ChronicDiseases=&Phobias=&PatientsMedicalHistory=&Implants=&SocialHabits=&SocialNotes=&SurgeryNotes=&Alcohol=&Coffee=&Tea=&Smoker=&RecreationalDrugs=&OccupationalHazards=&ReviewOptions=" id="SaveForm">
+                            <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100" onclick="updateURLParameters(this)">Save</button>
+                            </a>*@
+                        <div class="timeline-body mt-n5 pt-3">
+                            <div class="timeline-deco"></div>
+                            <!-- Add New Examination -->
+                            <div class="timeline-item ">
+                                <i class="fa fa-plus-circle bg-orange-dark shadow-l timeline-icon"></i>
+                                <div class="timeline-item-content rounded-s bg-transparent border-0">
+                                    <h5 class="font-900 font-16 m-0 pt-3 ">
+                                        <a href="hybrid:gotonewexamination" class="color-orange-light">
+                                            Add New
+                                            Examination
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Old Examination -->
+                            @foreach (var timeline in Model.Item1)
+                            {
+                                <div class="timeline-item">
+                                    <div class="text-center timeline-icon w-auto bg-gray-dark " style="top:-57px">
+                                        <p class="px-3 font-13 color-white font-500">@timeline.TimeLineMonth</p>
+                                    </div>
+                                    @foreach (var exam in timeline.Exams)
+                                    {
+                                        List<ExaminationsDatum> examData = new List<ExaminationsDatum>();
+                                        List<VmAttachments> AttachmentList = new List<VmAttachments>();
+                                        string AttachmentsData = "";
+                                        var examDataJson = Shared.PostAPI($"api/Paitent/{Preferences.Get("savedCulture", "en-GB")}/PatientsEmr/loadexamdatatm?Id={exam.Id}", JsonConvert.SerializeObject(new { Id = exam.Id }));
+                                        if (!string.IsNullOrWhiteSpace(examDataJson))
+                                        {
+                                            examData = (JsonConvert.DeserializeObject<List<ExaminationsDatum>>(JObject.Parse(examDataJson)["result"].ToString()));
+                                        }
+                                        var examAttachments = Shared.PostAPI($"api/Account/{Preferences.Get("savedCulture", "en-GB")}/Account/GetAttachedFiles?AccountsID={SecureStorage.GetAsync("AccountID").Result}&ParentID={exam.Id}&Type=Examination");
+                                        if (!string.IsNullOrWhiteSpace(examAttachments))
+                                        {
+                                            AttachmentsData = (JObject.Parse(examAttachments)["result"] as JArray).ToString();
+                                        }
+                                        if (!string.IsNullOrWhiteSpace(AttachmentsData))
+                                        {
+                                            AttachmentList = JsonConvert.DeserializeObject<List<VmAttachments>>(AttachmentsData);
+                                        }
+
+                                        <div class="timeline-item-content rounded-s" style="margin: 108px 15px 30px 60px">
+                                            <div class="row">
+                                                @if (Shared.IsConnected())
+                                                {
+                                                    <div class="col-12 px-3">
+                                                        <div class="d-flex flex-row gap-1 justify-content-end">
+                                                            <a href="hybrid:gotonewexamination?ExamID=@exam.Id"
+                                                   class="btn rounded-m bg-dark-dark font-700 text-uppercase line-height-sm">Details</a>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <div class="col-auto">
+                                                    <h5>Description :</h5>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <p>
+                                                    <p>
+                                                            @exam.DoctorName <br />
+                                                            @if (exam.Department != null)
+                                                            {
+                                                            <span>@exam.Department / @exam.VisitType </span>
+                                                            }
+                                                    </p>
+                                                        @foreach (var data in examData.GroupBy(x => x.ExaminationsDataSection))
+                                                        {
+
+                                                        <b>@data.Key</b>
+                                                            foreach (var datavalue in data)
+                                                            {
+                                                            <p>@datavalue.ExaminationsDataField: @datavalue.ExaminationsDataValue</p>
+                                                            }
+                                                        }
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- button Files -->
+                                    <div class="content">
+                                                <div class="row row-auto mb-0">
+                                                    @foreach (var Attachment in AttachmentList)
+                                                    {
+                                                        <div class="px-1">
+                                                            <a href="#"
+                                                   class="btn btn-m btn-full mb-3 rounded-xl text-uppercase font-900 shadow-s bg-blue-dark" style="word-wrap: break-word;">
+                                                                @Attachment.attachmentsName
+                                                            </a>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <div class="clearfix mb-5 mt-3"></div>
+                    </div>
+                    <!-- Medical -->
+                    <div data-bs-parent="#tab-group-2" class="collapse " id="tab-6">
+                        <div class="accordion mt-2 pb-3" id="accordion-2a">
+                            <div class="card card-style bg-white p-4 shadow-0 mb-4" style="height:100%;">
+                                <!-- SELECT A Risk -->
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    <label for="" class="color-highlight">Risk Factors</label>
+                                    <select id="RiskFactorsOptions" name="RiskFactorsOptions" multiple="multiple">
+                                        <option value="default" disabled hidden>Risk Factors</option>
+                                        @foreach (var risk in @Model.Item4)
+                                        {
+                                            if (App.PatientEMR.PatientsEMR != null)
+                                            {
+                                                if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsRiskFactors) && App.PatientEMR.PatientsEMR.PatientsRiskFactors.Split('|').Contains(@risk.Name))
+                                                {
+                                                    <option value="@risk.Name" selected>@risk.Name</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@risk.Name">@risk.Name</option>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <option value="@risk.Name">@risk.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                    <em></em>
+                                </div>
+                                <!-- SELECT Chronic Disease -->
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    <label for="" class="color-highlight">Chronic Diseases</label>
+                                    <select id="ChronicOptions" name="ChronicOptions" multiple="multiple">
+                                        <option value="default" disabled hidden>Chronic Diseases</option>
+                                        @foreach (var chronicdisease in @Model.Item5)
+                                        {
+                                            if (App.PatientEMR.PatientsEMR != null)
+                                            {
+                                                if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsChronicDisease) && App.PatientEMR.PatientsEMR.PatientsChronicDisease.Split('|').Contains(@chronicdisease.Name))
+                                                {
+                                                    <option value="@chronicdisease.Name" selected>@chronicdisease.Name</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@chronicdisease.Name">@chronicdisease.Name</option>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <option value="@chronicdisease.Name">@chronicdisease.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                    <em></em>
+                                </div>
+                                <!-- Wear Implant -->
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    @if (!string.IsNullOrWhiteSpace(App.PatientEMR.PatientsEMR.PatientsImplants))
+                                    {
+                                        <input type="name" class="form-control validate-name" value=@App.PatientEMR.PatientsEMR.PatientsImplants id="ImplantInput"
+                                           placeholder="Wear Implant">
+                                    }
+                                    else
+                                    {
+                                        <input type="name" class="form-control validate-name" id="ImplantInput"
+                                           placeholder="Wear Implant">
+                                    }
+                                    <label for="" class="color-highlight">Wear Implant</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                </div>
+                                <!-- Significant illness -->
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    @if (!string.IsNullOrWhiteSpace(App.PatientEMR.PatientsEMR.PatientsMedicalHistory))
+                                    {
+                                        <input type="name" class="form-control validate-name" value=@App.PatientEMR.PatientsEMR.PatientsMedicalHistory id="MedicalInput"
+                                           placeholder="Significant illness">
+                                    }
+                                    else
+                                    {
+                                        <input type="name" class="form-control validate-name" id="MedicalInput"
+                                           placeholder="Significant illness">
+                                    }
+                                    <label for="" class="color-highlight">Significant illness</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                </div>
+                                <!-- SELECT Do you have phobia -->
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    <label for="" class="color-highlight">Do you have phobia?</label>
+                                    <select id="PhobiaOptions" name="PhobiaOptions" multiple="multiple">
+                                        <option value="default" disabled hidden>Do you have phobia?</option>
+                                        @foreach (var phobia in @Model.Item6)
+                                        {
+                                            if (App.PatientEMR.PatientsEMR != null)
+                                            {
+                                                if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsClaustrophobic) && App.PatientEMR.PatientsEMR.PatientsClaustrophobic.Split('|').Contains(@phobia.Name))
+                                                {
+                                                    <option value="@phobia.Name" selected>@phobia.Name</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@phobia.Name">@phobia.Name</option>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <option value="@phobia.Name">@phobia.Name</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                    <em></em>
+                                </div>
+                                <!-- Other -->
+                                <div class="input-style no-borders no-icon mb-4">
+                                    <textarea id="form7a" placeholder="Enter your message"
+                                              style="height: 58px;"></textarea>
+                                    <label for="form7a" class="color-highlight">Enter your Message</label>
+                                </div>
+
+                            </div>
+                            <div class="card card-style bg-white p-4 shadow-0 mb-4" style="height:100%;">
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    <label for="" class="color-highlight">Social Habits</label>
+                                    <select id="HabitsOptions" name="HabitsOptions" multiple="multiple" onchange="Toggle()">
+                                        <option value="default" disabled hidden>Select Social Habits</option>
+                                        @{
+                                            Dictionary<string, string> Habits = new Dictionary<string, string>();
+                                            Habits.Add("Alchol", "Alcohol");
+                                            Habits.Add("Coffee", "Coffee");
+                                            Habits.Add("Tea", "Tea");
+                                            Habits.Add("Smoker", "Smoker");
+                                            Habits.Add("Drugs", "Recreational Drugs");
+                                            Habits.Add("Occupational", "Occupational Hazards/Environmental Exposures");
+                                        };
+                                        }
+                                        @foreach (var habit in Habits)
+                                        {
+                                            if (App.PatientEMR.PatientsEMR != null)
+                                            {
+                                                if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsSocialHabits) && App.PatientEMR.PatientsEMR.PatientsSocialHabits.Split('|').Contains(@habit.Value))
+                                                {
+                                                    <option value="@habit.Key" selected>@habit.Value</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@habit.Key">@habit.Value</option>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <option value="@habit.Key">@habit.Value</option>
+                                            }
+                                        }
+
+                                    </select>
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsHowMany))
+                                    {
+                                        <input placeholder="How many per day?" value=@App.PatientEMR.PatientsEMR.PatientsHowMany name="HabitsInputs" id="Alcohol" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="How many per day?" name="HabitsInputs" id="Alcohol" disabled />
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsPerCoffee))
+                                    {
+                                        <input placeholder="How many per day?" value=@App.PatientEMR.PatientsEMR.PatientsPerCoffee name="HabitsInputs" id="Coffee" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="How many per day?" name="HabitsInputs" id="Coffee" disabled />
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsPerTea))
+                                    {
+                                        <input placeholder="How many per day?" value=@App.PatientEMR.PatientsEMR.PatientsPerTea name="HabitsInputs" id="Tea" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="How many per day?" name="HabitsInputs" id="Tea" disabled />
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsSmoker))
+                                    {
+                                        <input placeholder="How many Cigarettes per day?" value=@App.PatientEMR.PatientsEMR.PatientsSmoker name="HabitsInputs" id="Smoker" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="How many Cigarettes per day?" name="HabitsInputs" id="Smoker" disabled />
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsIsRecreationalDrugsDetails))
+                                    {
+                                        <input placeholder="Please Specify Drugs" value=@App.PatientEMR.PatientsEMR.PatientsIsRecreationalDrugsDetails name="HabitsInputs" id="Drugs" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="Please Specify Drugs" name="HabitsInputs" id="Drugs" disabled />
+                                    }
+
+                                    @if (!string.IsNullOrEmpty(App.PatientEMR.PatientsEMR.PatientsOccupationalHazardsDetails))
+                                    {
+                                        <input placeholder="Please Specify Occupational Hazards / Environmental Exposures" value=@App.PatientEMR.PatientsEMR.PatientsOccupationalHazardsDetails name="HabitsInputs" id="Occupational" disabled />
+                                    }
+                                    else
+                                    {
+                                        <input placeholder="Please Specify Occupational Hazards / Environmental Exposures" name="HabitsInputs" id="Occupational" disabled />
+                                    }
+
+
+                                    <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                    <em></em>
+                                </div>
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    @if (!string.IsNullOrWhiteSpace(App.PatientEMR.PatientsEMR.PatientsSocialNotes))
+                                    {
+                                        <input type="name" class="form-control validate-name" value=@App.PatientEMR.PatientsEMR.PatientsSocialNotes id="SocialNotes"
+                                           placeholder="Comments">
+                                    }
+                                    else
+                                    {
+                                        <input type="name" class="form-control validate-name" id="SocialNotes"
+                                           placeholder="Comments">
+                                    }
+                                    <label for="" class="color-highlight">Comments</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                </div>
+                            </div>
+                            <div class="card card-style bg-white p-4 shadow-0 mb-4" style="height:100%;">
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-question-circle"></i>
+                                    @if (!string.IsNullOrWhiteSpace(App.PatientEMR.PatientsEMR.PatientsSurgeryHistory))
+                                    {
+                                        <input type="name" class="form-control validate-name" value=@App.PatientEMR.PatientsEMR.PatientsSurgeryHistory id="SurgeryNotes"
+                                           placeholder="Previous Surgeries">
+                                    }
+                                    else
+                                    {
+                                        <input type="name" class="form-control validate-name" id="SurgeryNotes"
+                                           placeholder="Previous Surgeries">
+                                    }
+                                    <label for="" class="color-highlight">Previous Surgeries</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix mb-5 mt-3"></div>
+                    </div>
+                    <!-- Review -->
+                    <div data-bs-parent="#tab-group-2" class="collapse" id="tab-7">
+                        <div class="contnet pb-3">
+                            <div class="card card-style mx-0 ">
+                                <div class="content">
+                                    @foreach (var Section in @Model.Item7)
+                                    {
+                                        <i class="fa fa-chart-line float-start ms-3 mt-3 fa-2x color-gray-dark"></i>
+                                        <h2 class="float-start ms-3 mt-3">@Section.Name</h2>
+                                        <div class="content mt-n1 px-3">
+                                            <div class="row">
+                                                @foreach (var child in @Section.ChildList)
+                                                {
+                                                    <div class="col-4 d-flex align-items-baseline my-1">
+                                                        <div class="form-check icon-check">
+                                                            <input class="form-check-input" type="checkbox" value="@Section.Id|@child.Id|@Section.Name|@child.Name" id="@child.Id" name="ReviewOptions" @(Model.Item8.Contains(child.Id) ? "checked" : "")>
+                                                            <label class="form-check-label" for="@child.Id" @(Model.Item8.Contains(child.Id) ? "checked" : "")>@child.Name</label>
+                                                            <i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
+                                                            <i class="icon-check-2 far fa-check-square font-16 color-orange-dark"></i>
+                                                        </div>
+                                                        @*<input type="checkbox" checked="@(Model.Item8.Contains(child.Name) ? "checked" : "")">@child.Name*@
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="clearfix mb-5 mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PopUp Add New Examination -->
+        <div id="newExamination" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Add New Examination</h1>
+                <p class="color-highlight">Patients EMR</p><a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="divider divider-margins mb-n2"></div>
+
+            <div class="content">
+                <div class="list-group">
+                    <!-- SELECT Chief complaint -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Chief complaint</label>
+                        <select id="">
+                            <option value="default" disabled selected>Chief complaint</option>
+                            <option value="">Chief complaint 1</option>
+                            <option value="">Chief complaint 2</option>
+                            <option value="">Chief complaint 3</option>
+                            <option value="">Chief complaint 4</option>
+                            <option value="">Chief complaint 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Vital signs -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Vital signs</label>
+                        <select id="">
+                            <option value="default" disabled selected>Vital signs</option>
+                            <option value="">Vital signs 1</option>
+                            <option value="">Vital signs 2</option>
+                            <option value="">Vital signs 3</option>
+                            <option value="">Vital signs 4</option>
+                            <option value="">Vital signs 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Examination -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Examination</label>
+                        <select id="">
+                            <option value="default" disabled selected>Examination</option>
+                            <option value="">Examination 1</option>
+                            <option value="">Examination 2</option>
+                            <option value="">Examination 3</option>
+                            <option value="">Examination 4</option>
+                            <option value="">Examination 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Provisional Diagnosis -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Provisional Diagnosis</label>
+                        <select id="">
+                            <option value="default" disabled selected>Provisional Diagnosis</option>
+                            <option value="">Provisional Diagnosis 1</option>
+                            <option value="">Provisional Diagnosis 2</option>
+                            <option value="">Provisional Diagnosis 3</option>
+                            <option value="">Provisional Diagnosis 4</option>
+                            <option value="">Provisional Diagnosis 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Investigations -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Investigations</label>
+                        <select id="">
+                            <option value="default" disabled selected>Investigations</option>
+                            <option value="">Investigations 1</option>
+                            <option value="">Investigations 2</option>
+                            <option value="">Investigations 3</option>
+                            <option value="">Investigations 4</option>
+                            <option value="">Investigations 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Diagnosis -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Diagnosis</label>
+                        <select id="">
+                            <option value="default" disabled selected>Diagnosis</option>
+                            <option value="">Diagnosis 1</option>
+                            <option value="">Diagnosis 2</option>
+                            <option value="">Diagnosis 3</option>
+                            <option value="">Diagnosis 4</option>
+                            <option value="">Diagnosis 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT Prescription -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-question-circle"></i>
+                        <label for="" class="color-highlight">Prescription</label>
+                        <select id="">
+                            <option value="default" disabled selected>Prescription</option>
+                            <option value="">Prescription 1</option>
+                            <option value="">Prescription 2</option>
+                            <option value="">Prescription 3</option>
+                            <option value="">Prescription 4</option>
+                            <option value="">Prescription 5</option>
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script>
+        Toggle();
+                // const pageSet = document.getElementById("page");
+                // pageSet.children[2].removeAttribute("style");
+                // pageSet.children[2].classList.add("bg-dark");
+
+                // if the scrollY more than 230px fixed tab to top
+                window.onscroll = function (ev) {
+                    const tabInScrollY = document.getElementById("tabInScrollY");
+                    if ((window.scrollY) >= 230) {
+                        tabInScrollY.classList.add("fixed-top", "shadow");
+                        tabInScrollY.classList.remove("card-style");
+                        tabInScrollY.style.top = "74px";
+                    }
+                    else if ((window.scrollY) <= 200) {
+                        tabInScrollY.classList.remove("fixed-top", "shadow");
+                        tabInScrollY.classList.add("card-style");
+                        tabInScrollY.style.top = "0px";
+                    }
+                };
+                function getUrl(select) {
+                    var currentUrl = $(select).attr('href');
+                    return currentUrl;
+                }
+        function Toggle()
+        {
+            debugger;
+            var values = $('#HabitsOptions').val();
+            var ReviewValues = document.getElementsByName("ReviewOptions");
+            var elements = document.getElementsByName("HabitsInputs");
+
+            elements.forEach(myFunction);
+            function myFunction(item, index)
+            {
+        @*elements[index].style.display = "none";*@
+                elements[index].disabled = true;
+
+                if(values.includes(item.id))
+                {
+                    elements[index].disabled = false;
+                    //elements[index].style.display = "block";
+                }
+            }
+        }
+
+                //
+    </script>
+</body>
+</html>

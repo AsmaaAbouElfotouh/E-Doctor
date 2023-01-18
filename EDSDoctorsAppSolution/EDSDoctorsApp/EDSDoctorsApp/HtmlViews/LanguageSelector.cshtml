@@ -1,0 +1,37 @@
+﻿@model List<EDSDoctorsApp.Models.LanguagesModel>
+@using EDSDoctorsApp.Resources
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - Splash</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap", AppResources.dir2, ".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" style="background-color:white">
+    <div id="page" style="text-align:center;background-color:white"> 
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <a href="hybrid:DoChangeLanguage?Lang=@Model[i].Value" class="color-highlight">@Model[i].Name </a>
+                                if (i != Model.Count - 1)
+                                {
+                                    @:<text> | </text>
+                                }
+                            }
+    </div>
+
+
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+
+    <script></script>
+</body>
+</html>

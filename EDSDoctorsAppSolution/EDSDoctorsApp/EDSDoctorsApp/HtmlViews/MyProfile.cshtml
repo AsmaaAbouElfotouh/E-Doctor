@@ -1,0 +1,647 @@
+﻿@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Helper.EMR
+@using EDSDoctorsApp.APIs.Account
+@using EDSDoctorsApp.Models
+@using EDSDoctorsApp
+@using Xamarin.Essentials
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@model (List<TreeResponseModel>,List<MySchedules>,EDSDoctorsApp.APIs.HR.StaffModel,EDSDoctorsApp.APIs.Account.StaffModel,List<EDSDoctorsApp.APIs.Account.DropDownListModel>,List<EDSDoctorsApp.APIs.Account.DropDownListModel>)
+<!DOCTYPE html>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - My Profile</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="Sticky/fonts/css/fontawesome-all.min.css" />
+    <link href="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+    <link rel="manifest"
+          href="_manifest.json"
+          data-pwa-version="set_in_manifest_and_pwa_js" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="Sticky/app/icons/icon-192x192.png" />
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light"
+      data-highlight="highlight-dark"
+      data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center header-auto-showx">
+            <p class="header-title">My Profile</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div class="page-content header-clear-medium">
+
+            <div class="card card-style">
+                <div class="d-flex content">
+                    <div class="flex-grow-1">
+                        <div class="align-middle">
+                            <h1 class="font-700 mb-1">@Model.Item3.ResourcesName - @Model.Item3.ResourcesStaff.ResourcesHrid</h1>
+                            @*  <p class="mb-0 pb-1 pe-3">
+                                Date of Birth: @Model.Item3.ResourcesStaff.ResourcesDob.Value.Date.ToShortDateString()
+                                </p>
+                                <p class="mb-0 pb-1 pe-3">
+                                @if(Model.Item3.ResourcesStaff.ResourcesGender != null) {<text>Gender: </text>@Model.Item3.ResourcesStaff.ResourcesGender}
+                                </p>
+                                <p class="mb-0 pb-1 pe-3">
+                                @if(Model.Item3.ResourcesStaff.ResourcesPhone1 != null) {<text>Phone: </text>@Model.Item3.ResourcesStaff.ResourcesPhone1}
+                                </p>*@
+                        </div>
+                    </div>
+                    <div>
+                        <input type="file" id="file-upload" class="upload-file" onchange="ChangeProfile(this)" accept="image/*" style="display:none" />
+                        <a href="hybrid:douploadprofileimage">
+                            <img id="userImg" src="data:image/png;base64,@Shared.ConvertByteArrayToBase64(Model.Item3.ResourcesStaff.ResourcesImage)" onerror="this.src='Sticky/images/profile.png';"
+                                 height="80"
+                                 width="80"
+                                 class="rounded-circle mt- shadow-xl preload-img" @*onclickx="Uploadimg()"*@ />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <form action="hybrid:DoSaveProfileData" id="ProfileForm">
+                        <h2 class="mb-4">@AppResources.BasicInformation</h2>
+                        <input type="text" id="hiddenImg" name="PatientsImage" style="display:none" />
+                        <input class="hfPGUID" type="hidden" value="" />
+                        <canvas width="300" height="300" id="mycanvas" style="display: none;"></canvas>
+
+                        <input type="hidden" id="PatientsEmail" name="PatientsEmail" value="" />
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="DoctorName" class="form-control validate-name font-14" id="DoctorName" placeholder="Name" value="@Model.Item3.ResourcesName" required>
+                            <label for="PatientsName" class="color-highlight font-14 mt-1">@AppResources.Name</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fas fa-transgender"></i>
+                            <label for="form5" class="color-highlight font-14 mt-1">@AppResources.Gender</label>
+                            <input type="hidden" class="hfGender" value="" />
+                            <select id="form5" name="DoctorGender" class="form-control ddlgender">
+                                <option value="default" selected disabled hidden>
+                                    @AppResources.Gender
+                                </option>
+                                <option value="Male" @if(Model.Item3.ResourcesStaff.ResourcesGender == "Male"){
+                                <text>selected</text>
+}>@AppResources.Male</option>
+                                <option value="Female" @if(Model.Item3.ResourcesStaff.ResourcesGender == "Female"){
+                                <text>selected</text>
+}>@AppResources.Female</option>
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon mb-4">
+                            <i class="fa fa-calendar"></i>
+                            <input type="date" style="background-color:white;-webkit-appearance: none;" id="DoctorDOB" name="DoctorDOB" value="@try{@Model.Item3.ResourcesStaff.ResourcesDob.Value.Date.ToString("yyyy-MM-dd")}catch{}">
+                            <label for="DoctorDOB" class="color-highlight font-14 mt-1">@AppResources.Dateofbirth</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="DoctorPhone" class="form-control validate-field font-14" id="DoctorPhone" placeholder="@AppResources.Phone" value="@Model.Item3.ResourcesStaff.ResourcesPhone1" required>
+                            <label for="DoctorPhone" class="color-highlight font-14 mt-1">@AppResources.Phone</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fa fa-certificate" aria-hidden="true"></i>
+                            <label for="Specialty" class="color-highlight font-14 mt-1">@AppResources.Speciality</label>
+                            <select id="Specialty" name="DoctorSpecialty" class="form-control ddlgender">
+                                <option value="default" selected disabled hidden>
+                                    @AppResources.Speciality
+                                </option>
+                                @foreach (var Specialty in Model.Item5)
+                                {
+                                    <option value="@Specialty.Id" @if(Model.Item3.ResourcesStaff.ResourcesSpecialtiesId.ToString().ToLower() == Specialty.Id.ToLower())
+                                        {
+                                            <text>selected</text>
+                                        }>@Specialty.Name</option>
+                                }
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fas fa-graduation-cap"></i>
+                            <label for="Degree" class="color-highlight font-14 mt-1">@AppResources.Degree</label>
+                            <input type="hidden" class="hfGender" value="" />
+                            <select id="Degree" name="DoctorDegree" class="form-control ddlgender">
+                                <option value="default" selected disabled hidden>
+                                    @AppResources.Degree
+                                </option>
+                                @foreach (var Career in Model.Item6)
+                                {
+                                    <option value="@Career.Name" @if(Model.Item4.ResourcesCareerLevel == Career.Name)
+                                        {
+                                            <text>selected</text>
+                                        }>@Career.Name</option>
+                                }
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+
+
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase @if(!Shared.IsConnected()){<text>disabled</text>} ">@AppResources.SaveBasicInformation</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card card-style">
+                <div class="content mt-4 mb-4">
+                    <h2 class="mb-4">@AppResources.languageSettings</h2>
+                    <div class="input-style has-borders no-icon ">
+                        <select id="form5" class="form-control ddlLang" onchange="ChangeLang(this)">
+                            <option value="default" disabled selected>
+                                @AppResources.SelectLanguage
+                            </option>
+                            @* @foreach (var Lang in Model.Data.Lang)
+                                {
+                                <option value="@Lang.Value">@Lang.Name</option>
+
+                                }*@
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <h2 class="mb-4">Locations</h2>
+                    <table class="table table-borderless text-center text-black-50 rounded-sm shadow-l"
+                           style="overflow: auto;table-layout:auto" border=1 frame=void rules=rows>
+                        <thead>
+                            <tr class="bg-dark-dark">
+                                <th scope="col" class="color-white">Locations</th>
+                                <th scope="col" class="color-white" width=10></th>
+                                <th scope="col" class="color-white" width=10></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var Location in Model.Item1)
+                            {
+                                <tr style="border: solid;border-width: 1px 0;">
+                                    <td width="90%">
+                                        @Location.Name
+                                    </td>
+                                    <td width="5%">
+                                        <a data-menu="editLocation" onclick="editAddress('@Location.Id','@Location.Name')">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td width="5%">
+                                        <i class="fa fa-trash color-red-dark" onclick="deletelocation('@Location.Id')"></i>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="d-flex text-center mb-4">
+                        <div class="me-3 speach-icon">
+                            <a class="bg-green-dark ms-2" data-menu="newLocation"><i class="fa fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-style">
+                <div class="content mt-4 mb-4">
+                    <h2 class="mb-4">Schedules</h2>
+                    <div class="text-center mb-3">
+                        <table class="table table-borderless text-center text-black-50 rounded-sm shadow-l"
+                               style="overflow: auto;table-layout:auto" border=1 frame=void rules=rows>
+                            <thead>
+                                <tr class="bg-dark-dark">
+                                    <th scope="col" class="color-white">Days</th>
+                                    <th scope="col" class="color-white">From</th>
+                                    <th scope="col" class="color-white">To</th>
+                                    <th scope="col" class="color-white" width=10></th>
+                                    <th scope="col" class="color-white" width=10></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var Schedule in Model.Item2)
+                                {
+                                    @*var ScheduleResult = Shared.PostAPI($"api/Account/{Preferences.Get("savedCulture", "en-GB")}/Schedule/getScheduleDetails?id={Schedule.PK}", JsonConvert.SerializeObject(new { id = Schedule.PK }));
+                                    var ScheduleDetails = JObject.Parse(ScheduleResult)["result"].ToObject<Schedule>();*@
+                                    <tr style="border: solid;border-width: 1px 0;">
+                                        <td width="40%" style="word-wrap:anywhere">
+                                            @Schedule.Days
+                                        </td>
+
+                                        <td width="30%">
+                                            @Schedule.Start
+                                        </td>
+                                        <td width="30%">
+                                            @Schedule.End
+                                        </td>
+                                        <td>
+                                            <a data-menu="editSchedules" onclick="editSchedule('@Schedule.Start','@Schedule.End','@Schedule.Days','@Schedule.PK')">
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <i class="fa fa-trash color-red-dark" onclick="deleteschedule('@Schedule.PK')"></i>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="d-flex text-center mb-4">
+                            <div class="me-3 speach-icon">
+                                <a class="bg-green-dark ms-2" data-menu="newSchedules"><i class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="toast-main" class="toast toast-tiny toast-container toast-bottom bg-orange-light" data-bs-delay="2000" data-autohide="true">
+            @*<i class="fa fa-savex fa-spinx me-3"></i>*@
+            <i class="toast-message"></i>
+
+        </div>
+
+        <div id="newLocation" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Add New Location</h1>
+                <p class="color-highlight"></p><a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <br />
+            <div class="divider divider-margins mb-n2"></div>
+            <div class="card card-style">
+                <div class="content mb-0">
+                    @*<h2 class="mb-4">Location</h2>*@
+                    <form action="hybrid:addlocation">
+                        <div class="input-style has-borders no-icon ">
+                            <input name="LocationName" placeholder="Location Name" />
+                        </div>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="editLocation" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Location</h1>
+                <p class="color-highlight"></p><a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <br />
+            <div class="divider divider-margins mb-n2"></div>
+            <div class="card card-style">
+                <div class="content mb-0">
+                    @*<h2 class="mb-4">Location</h2>*@
+                    <form action="hybrid:addlocation">
+                        <input hidden id="LocationID" name="LocationID" />
+                        <div class="input-style has-borders no-icon ">
+                            <input id="LocationName" name="LocationName" placeholder="Location Name" />
+                        </div>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="newSchedules" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Add New Schedules</h1>
+                <p class="color-highlight"></p><a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="divider divider-margins mb-n2"></div>
+            <br />
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <form action="hybrid:saveschedules" id="SchedulesForm">
+                        <table class="table table-borderless text-center text-black-50 rounded-sm shadow-l"
+                               style="overflow: hidden;">
+                            <thead>
+                                <tr class="bg-dark-dark">
+                                    <th scope="col" class="color-white">Day</th>
+                                    <th scope="col" class="color-white">From</th>
+                                    <th scope="col" class="color-white">To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" name="WeekDay" value="Saturday">Saturday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Saturday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Saturday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sunday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Sunday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Sunday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Monday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Monday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Monday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tuesday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Tuesday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Tuesday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wednesday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Wednesday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Wednesday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Thursday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Thursday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Thursday_To" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Friday</th>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Friday_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Friday_To" class="form-control">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase">Add Schedules</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="editSchedules" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Edit Schedule</h1>
+                <a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <form action="hybrid:editschedules" id="SchedulesForm">
+                        @* <h2 class="mb-4">Location</h2>
+                            <p>
+                            <label id="Location_Edit" name="Location_Edit"></label>
+                            </p>
+                            <br />*@
+                        <table class="table table-borderless text-center text-black-50 rounded-sm shadow-l"
+                               style="overflow: hidden;">
+                            <thead>
+                                <tr class="bg-dark-dark">
+                                    <th scope="col" class="color-white">From</th>
+                                    <th scope="col" class="color-white">To</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="color-green-dark">
+                                        <input type="time" name="Input_From" id="Input_From" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="time" name="Input_To" id="Input_To" class="form-control">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="content">
+                            <h4 class="font-700 text-uppercase font-12 opacity-50 mt-n2">Weekdays</h4>
+                            <input id="Selected_Days" name="Selected_Days" hidden />
+                            <input id="Selected_Location" name="Selected_Location" hidden />
+                            <input id="Selected_ScheduleID" name="Selected_ScheduleID" hidden />
+                            <div class="divider mb-3"></div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Saturday" id="Saturday_Check">
+                                <label class="font-14 form-check-label" for="Saturday_Check">Saturday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Sunday" id="Sunday_Check">
+                                <label class="font-14 form-check-label" for="Sunday_Check">Sunday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Monday" id="Monday_Check">
+                                <label class="font-14 form-check-label" for="Monday_Check">Monday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Tuesday" id="Tuesday_Check">
+                                <label class="font-14 form-check-label" for="Tuesday_Check">Tuesday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Wednesday" id="Wednesday_Check">
+                                <label class="font-14 form-check-label" for="Wednesday_Check">Wednesday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Thursday" id="Thursday_Check">
+                                <label class="font-14 form-check-label" for="Thursday_Check">Thursday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                            <div class="form-check icon-check">
+                                <input class="font-14 form-check-input" type="checkbox" name="Weekdays" value="Friday" id="Friday_Check">
+                                <label class="font-14 form-check-label" for="Friday_Check">Friday</label>
+                                <i class="font-17 icon-check-1 far fa-square color-gray-dark"></i>
+                                <i class="font-17 icon-check-2 fa fa-check-square color-orange-dark"></i>
+                            </div>
+                        </div>
+                        <span>
+                            <button id="submit-button" type="submit" onclick="Check_Days()" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase">Save</button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+
+    <script src="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.js"></script>
+    <script>
+        function editSchedule(from,to,days,ScheduleID)
+        {
+            debugger;
+            //var selected = $('#Location_Select').val();
+            //$('#Location_Edit option[value="'+selected+'"]')
+            //$('#Location_Edit').attr("disabled",true);
+            //var SelectedLoc = $('#Location_Select :selected').text();
+            //document.getElementById('Location_Edit').innerHTML = SelectedLoc;
+
+            //$('#Selected_Location').val(locationID);
+            $('#Selected_Days').val(days);
+            $('#Selected_ScheduleID').val(ScheduleID);
+            $('#Input_From').val(from);
+            $('#Input_To').val(to);
+            $('#Saturday_Check').prop('checked', days.includes("Saturday"));
+            $('#Sunday_Check').prop('checked', days.includes("Sunday"));
+            $('#Monday_Check').prop('checked', days.includes("Monday"));
+            $('#Tuesday_Check').prop('checked', days.includes("Tuesday"));
+            $('#Wednesday_Check').prop('checked', days.includes("Wednesday"));
+            $('#Thursday_Check').prop('checked', days.includes("Thursday"));
+            $('#Friday_Check').prop('checked', days.includes("Friday"));
+        }
+        function Check_Days()
+        {
+            debugger;
+            var selected_days = document.querySelectorAll('input[name=Weekdays]:checked');
+            const values = [];
+            for (const [key, value] of Object.entries(selected_days))
+            {
+              values.push(value.value);
+            console.log(`${key}: ${value}`);
+            }
+            $('#Selected_Days').val(values.join(','));
+        }
+
+        function editAddress(locationID,locationName)
+        {
+            $('#LocationName').val(locationName);
+            $('#LocationID').val(locationID);
+        }
+
+        function deletelocation(LocationID)
+        {
+            if (confirm("Are you sure to delete this record?") == true)
+            {
+                window.location.replace("hybrid:deletelocation?LocationID=" + LocationID)
+            }
+            else
+            {
+                text = "You canceled!";
+            }
+        }
+
+        function deleteschedule(ScheduleID)
+        {
+            if (confirm("Are you sure to delete this record?") == true)
+            {
+                window.location.replace("hybrid:deleteschedule?ScheduleID=" + ScheduleID)
+            }
+            else
+            {
+                text = "You canceled!";
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#PatientsDOB').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                clearBtn: true,
+            });
+            $(".ddlgender > [value=" + $('.hfGender').val() + "]").attr("selected", "true");
+        });
+        function ChangeProfile(sender)
+        {
+             debugger;
+                console.log($('.hfPGUID').val());
+            var reader = new FileReader();
+        reader.onload = function () { $("#userImg").attr("src", reader.result); $("#hiddenImg").attr("value", reader.result); }
+        reader.readAsDataURL(sender.files[0]);
+                var files = sender.files[0];
+                $.ajax({
+                    type: "post",
+                    async: true,
+                    dataType: "json",
+                    url: GlobalUrl + "ChangeProfilePicture",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "file": files, "PGUID": $('.hfPGUID').val() }),
+                    success: function (response, $Id) {
+                        debugger;
+                    },
+                    error: function (error) {
+                        var g = error;
+                    },
+                });
+        }
+        function ChangeLang(sender) {
+            debugger;
+            var Lang = $(sender).val();
+            window.location = "hybrid:DoChangeLanguage?PGUID=" + $('.hfPGUID').val() + "&Lang=" + Lang;
+        }
+
+        function Uploadimg() {
+            $('.upload-file').trigger('click');
+        }</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp
+@using EDSDoctorsApp.APIs.Account
+@using Xamarin.Essentials
+@model List<VmAttachments>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    @*<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">*@
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    @*<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">*@
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky53/app/icons/icon-192x192.png">
+
+</head>
+
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center " id="headerScope">
+            <p class="header-title">Basic Info</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div id="footer-bar" class="footer-bar-1">
+            <a href="hybrid:gotobasicinfo" class="active-nav"><i class="fa fa-info-circle"></i><span>Basic Info</span></a>
+            <a href="hybrid:gotovitalsigns"><i class="fa fa-heartbeat"></i><span>Vital Signs</span></a>
+            <a href="hybrid:gotogallery"><i class="fa fa-images"></i><span>Gallery</span></a>
+        </div>
+        <div class="page-content header-clear-medium">
+            <div class="card card-style">
+                <div class="content">
+                    <form action="hybrid:savebasicinfo" enctype="multipart/form-data">
+                        <!-- Name -->
+                        <input name="Profile" hidden />
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-user-circle"></i>
+                            <input type="text" name="PatientName" class="form-control validate-name" value="@App.PatientEMR.PatientsName" id="form1i" placeholder="Name">
+                            <label for="form1i" class="color-highlight">Name</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <!-- <em>(required)</em> -->
+                        </div>
+                        <!-- SELECT  Nationality -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-user-circle"></i>
+                            <input type="text" name="PatientNationality" class="form-control validate-name" value="@App.PatientEMR.PatientsNationality" id="form1i" placeholder="Nationality">
+                            <label for="form1i" class="color-highlight">Nationality</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <!-- <em>(required)</em> -->
+                        </div>
+                        @*<div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa far fa-globe-africa"></i>
+                            <label for="form1f" class="color-highlight">Select Nationality</label>
+                            <select id="form1f" style="background-color:white">
+                            <option value="default" disabled selected>Select Nationality</option>
+                            <option value="">Nationality</option>
+                            <option value="">Nationality 1</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <!-- <em>(required)</em> -->
+                            </div>*@
+                        <!-- ID/Passport -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-passport"></i>
+                            <input type="text" name="PatientNationalityID" class="form-control validate-name" value="@App.PatientEMR.PatientsNationalID" id="form1i" placeholder="ID/Passport">
+                            <label for="form1i" class="color-highlight">ID/Passport</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <!-- <em>(required)</em> -->
+                        </div>
+                        <!-- DoB -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-birthday-cake" style="padding-top:5px"></i>
+                            <input type="date" name="PatientDOB" style="background-color:white;-webkit-appearance: none" value="@(Convert.ToDateTime(App.PatientEMR.PatientsDOB).ToString("yyyy-MM-dd"))" max="2030-01-01" min="2021-01-01"
+                                   class="form-control validate-text" id="" placeholder="DoB">
+                            <label for="" class="color-highlight">Select Date</label>
+                            <i class="fa fa-check disabled valid me-4 pe-3 font-12 color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid me-4 pe-3 font-12 color-red-dark"></i>
+                        </div>
+                        <!-- SELECT  Gender -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-venus-mars"></i>
+                            <label for="form1f" class="color-highlight">Gender</label>
+                            <select id="form1f" name="PatientGender" style="background-color:white">
+                                <option value="default" disabled selected>Select Gender</option>
+                                <option value="Male" @{
+                                        if(App.PatientEMR.PatientsGender == "Male"){
+                                        <text>Selected</text>
+}
+}>Male</option>
+                                <option value="Female" @{
+                                        if(App.PatientEMR.PatientsGender == "Female"){
+                                        <text>Selected</text>
+}
+}>Female</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <!-- <em>(required)</em> -->
+                        </div>
+                        <!-- Mobile -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-mobile"></i>
+                            <input type="tel" name="PatientMobile" class="form-control validate-text" value="@App.PatientEMR.PatientsMobile" id="" placeholder="Mobile">
+                            <label for="" class="color-highlight">Mobile</label>
+                            <i class="fa fa-times invalid color-red-dark disabled"></i>
+                            <i class="fa fa-check valid color-green-dark disabled"></i>
+                            <!-- <em class="disabled">(required)</em> -->
+                        </div>
+                        <!-- Phone -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="PatientPhone" class="form-control validate-text" value="@App.PatientEMR.PatientsPhone" id="" placeholder="Phone">
+                            <label for="" class="color-highlight">Phone</label>
+                            <i class="fa fa-times invalid color-red-dark disabled"></i>
+                            <i class="fa fa-check valid color-green-dark disabled"></i>
+                            <!-- <em class="disabled">(required)</em> -->
+                        </div>
+                        <!-- Email -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-mail-bulk"></i>
+                            <input type="email" name="PatientEmail" class="form-control validate-text" value="@App.PatientEMR.PatientsEmail" id="" placeholder="Email">
+                            <label for="" class="color-highlight">Email</label>
+                            <i class="fa fa-times invalid color-red-dark disabled"></i>
+                            <i class="fa fa-check valid color-green-dark disabled"></i>
+                            <!-- <em class="">(required)</em> -->
+                        </div>
+                        <!-- Address -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <i class="fa fa-address-book"></i>
+                            <input type="text" name="PatientAddress" class="form-control validate-name" value="@App.PatientEMR.PatientsStreet" id="" placeholder="Address">
+                            <label for="" class="color-highlight">Address</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <!-- <em>(required)</em> -->
+                        </div>
+                        <div class="content">
+                            <div class="row row-auto mb-0">
+                                <p>Attachments</p>
+                                @foreach (var Attachment in Model)
+                                {
+                                    <div class="px-1">
+                                        <div class="btn btn-m mb-3 rounded-xl text-uppercase font-900 shadow-s bg-blue-dark" style="word-wrap: break-word;">
+                                            @Attachment.AttachmentsName
+                                        </div>
+                                    <i class="fa fa-trash color-red-dark" onclick="window.location = 'hybrid:deletefiles?FileID=@Attachment.Id'"></i>
+                                    </div>
+                                }
+                                <div class="d-flex text-center mb-3">
+                                    <div class="me-3 speach-icon">
+                                        <a href="hybrid:DoUploadFiles?ParentID=@App.PatientEMR.Id&AccountsID=@SecureStorage.GetAsync("AccountID").Result&Type=Patient" class="bg-green-dark ms-2" data-menu="menu-upload"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">@AppResources.SaveBasicInformation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+
+</body>

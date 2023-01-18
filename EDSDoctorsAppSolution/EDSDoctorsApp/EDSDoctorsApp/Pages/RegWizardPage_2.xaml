@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EDSDoctorsApp.Pages.RegWizardPage_2" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <WebView
+                x:Name="wvTest"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button BackgroundColor="White" TextColor="Black" Text="Back" HorizontalOptions="Center" Clicked="Button_Clicked" />
+                <Button BackgroundColor="White" TextColor="Black" Text="Add Address" HorizontalOptions="Center" Grid.Column="1" Clicked="Add_Address" />
+                <Button BackgroundColor="White" TextColor="Black" Text="Finish" HorizontalOptions="Center" Grid.Column="2" Clicked="Goto_Homepage" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

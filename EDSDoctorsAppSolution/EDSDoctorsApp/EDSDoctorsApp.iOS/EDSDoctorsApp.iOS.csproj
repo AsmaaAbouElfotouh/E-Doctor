@@ -1,0 +1,2044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A096D3F-D405-4773-9B44-D5C83FAB9AE3}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>EDSDoctorsApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>EDSDoctorsApp.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>Apple Development: Esam Hossam (3S4RD679PM)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Sticky53\fonts\webfonts\fa-brands-400.woff" />
+    <BundleResource Include="Resources\Sticky53\fonts\webfonts\fa-brands-400.woff2" />
+    <BundleResource Include="Resources\Sticky53\fonts\webfonts\fa-regular-400.woff2" />
+    <BundleResource Include="Resources\Sticky53\fonts\webfonts\fa-solid-900.woff" />
+    <BundleResource Include="Resources\Sticky53\fonts\webfonts\fa-solid-900.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>2.80.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>2.80.3</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.8.116</Version>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt">
+      <Version>6.16.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\EDSDoctorsApp\EDSDoctorsApp.csproj">
+      <Project>{B45022C3-0470-4D12-8074-8738E9BBF470}</Project>
+      <Name>EDSDoctorsApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\before-after\before-after.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\before-after\before-after.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\charts\charts-call-graphs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\charts\charts.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\countdown\countdown.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\galleryViews\gallery-views.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\glightbox\glightbox-call.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\glightbox\glightbox.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\glightbox\glightbox.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\css\select2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\css\select2.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\select2.full.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\select2.full.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\select2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\select2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\af.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ar.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\az.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\bg.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\bn.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\bs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ca.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\cs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\da.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\de.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\dsb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\el.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\en.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\es.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\et.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\eu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\fa.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\fi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\fr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\gl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\he.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\hi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\hr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\hsb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\hu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\hy.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\id.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\is.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\it.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ja.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ka.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\km.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ko.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\lt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\lv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\mk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ms.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\nb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ne.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\nl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\pl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ps.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\pt-BR.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\pt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ro.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\ru.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sq.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sr-Cyrl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\sv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\th.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\tk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\tr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\uk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\vi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\zh-CN.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\plugins\select2-4.0.13\js\i18n\zh-TW.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\scripts\custom.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\scripts\embed.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\scripts\vcard.vcf" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\bootstrap.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_aqua.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_blue.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_brown.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_dark.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_grass.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_green.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_magenta.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_mint.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_night.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_orange.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_pink2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_red.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_sunny.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_teal.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\styles\highlights\highlight_yellow.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\app\icons\icon-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\app\icons\icon-192x192.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\fonts\css\fontawesome-all.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\photographer3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\preload-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\10s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\12s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\3s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\5s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\6s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\7s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\avatars\8s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\careers\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\careers\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\careers\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\careers\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\12t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\13t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\14t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\15t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\16t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\17t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\18t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\19t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\20t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\21t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\22m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\22t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\fitness\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\flags\Germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\flags\India.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\flags\Italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\flags\Spain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\flags\United-States.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\250x250\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\250x250\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\250x250\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\500x500\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\food\full\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\framework\pay-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\framework\pay-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\framework\pay-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\1 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\isolated\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\isolated\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\isolated\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\grocery\isolated\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\icons\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\icons\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\icons\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\icons\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\14s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\15s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\16s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\17s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\18s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\19s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\20s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\21s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\22s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\listing\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\6wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\8wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\medical\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\_bg-infinite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\0l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\0s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\0t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\10w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\11w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\12w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\13w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\14w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\15w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\16w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\17w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\18w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\19w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\20w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\21w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\22w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\23w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\24w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\25w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\26w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\27w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\28w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\29w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\30w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\31w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\32w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\6w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\1small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\2small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\3s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\3small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures\faces\4small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\pictures_vertical\bg9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\products\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\products\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\splash\apple-touch-icon-120x120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\splash\apple-touch-icon-72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\splash\apple-touch-icon-76x76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\1a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\1w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\2a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\2w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\3a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\store\3w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\travel\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\3.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\4.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\5.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\images\undraw\6.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Sticky53\php\contact.htm" />
+  </ItemGroup>
+</Project>

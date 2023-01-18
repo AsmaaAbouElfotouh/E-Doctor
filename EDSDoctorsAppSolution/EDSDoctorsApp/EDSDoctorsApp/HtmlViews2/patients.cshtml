@@ -1,0 +1,268 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp
+@using Xamarin.Essentials
+@using EDSDoctorsApp.Helper.EMR
+@model (List<PatientVM>,int,List<KeyValuePair<string,string>>,string)
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - patients</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="Sticky/scripts/jquery-ui.min.css">
+    <link rel="stylesheet" href="plugins/DateRangePicker/jquery.comiseo.daterangepicker.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center">
+            <p class="header-title">Patients</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+
+        <div class="page-content header-clear-large">
+            <div class="card mt-n4">
+                <div class="content">
+                    <!--  -->
+                    <div class="search-box bg-white rounded-xl bottom-0">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="border-0" placeholder="Search here.." id="PatientSearch" onkeyup="Search(this,@App.LoadMorePatientsRequest,@App.TotalPages,'@SecureStorage.GetAsync("userToken").Result','PatientsPage')">
+                        <a href="#" class="clear-search disabled mt-0 me-5">
+                            <i class="fa fa-times color-red-dark"></i>
+                        </a>
+
+                        <a data-menu="menu-sidebar-left-1" href="#">
+                            <i class="fa fa-filter color-dark-light font-12"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs content Group -->
+            <div class="" id="">
+                <div class="content">
+                    <!--  -->
+                    <div class="search-results disabled-search-listXX">
+                        <div class="list-group list-custom-large">
+                            <div class="PatientsContent">
+                                <!--  -->
+                                @foreach (var Patient in Model.Item1)
+                                {
+                                    <div class="card card-style overflow-visible mt-5" style="margin:0" data-filter-item data-filter-name="all">
+                                        <div class="content">
+                                            <div class="d-flex">
+
+                                                <div class=" d-inline-block mb-n5 ms-auto mt-n5 overflow-hidden rounded-sm text-center under-slider-btn">
+                                                    <h1 class="align-items-center bg-@(Patient.PatientsGender == "Male" ? "blue" : "pink")-dark d-flex flex-column font-20 justify-content-center mt-1 rounded-circle"
+                                                    style="width: 80px;height: 80px;">
+                                                        <span class="mt-4 font-18">@Patient.PatientsGender</span>
+                                                        <i class="fa fa-mars mt-n4"></i>
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-0 mt-5">
+
+                                                <div class="col">
+                                                    <h6 class="color-gray-dark mb-n3">@Patient.PatientsMRNo</h6>
+                                                    <h4 class="color-dark-light font-700 font-22 text-truncate mt-3">
+                                                        @Patient.PatientsName
+                                                    </h4>
+
+                                                    <div class="mt-n4">
+                                                        <span class="me-3">
+                                                            <i class="fa fa-clock"></i>
+                                                            <span>@Patient.Created</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="mt-n4">
+                                                        <span class="me-3">
+                                                            <p>@Patient.PatientsAge</p>
+                                                        </span>
+                                                    </div>
+                                                    <div class="mt-n4">
+                                                        <span class="me-3">
+                                                            <p>@Patient.PatientsNationality</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 px-3">
+                                                    <div class="d-flex flex-row gap-1 justify-content-end">
+                                                        <a href="hybrid:gotopatientsemr?PatientID=@Patient.PatientsAccountsID&PatientName=@Patient.PatientsName&PatientMRno=@Patient.PatientsMRNo"
+                                                       class="btn rounded-m bg-dark-dark font-700 text-uppercase line-height-sm">Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @if (App.TotalPages > 1)
+                            {
+                                <div class="content">
+                                    <a class="w-100 btn rounded-m bg-highlight font-700 text-uppercase line-height-sm" id="PatientsShowMoreBtn" onclick="GetResources(@App.LoadMorePatientsRequest,@App.TotalPages,'@SecureStorage.GetAsync("userToken").Result','PatientsPage',GetSearchTerm())">@AppResources.ShowMore</a>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- btn Load more -->
+                        @*<div class="content justify-content-center d-flex">
+                            <a href="hybrid:gotosearchpatients?SearchPage=@(Model.Start+1)"
+                            class="w-100 btn rounded-m bg-orange-dark font-100 font-12 text-uppercase line-height-sm">
+                            Load
+                            more <i class="fa fa-arrow-circle-down"></i>
+                            </a>
+                            </div>*@
+
+                    </div>
+                </div>
+
+                <div id="PatientNoSearch" class="search-no-results @if (App.TotalPages > 0)
+                     {
+                <text>disabled</text>
+} mt-4">
+                    <div class="card card-style">
+                        <div class="content">
+                            <h1>No Results</h1>
+                            <p>
+                                No Records Found.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- SideBar -->
+        <div id="menu-sidebar-left-1" class="bg-white menu menu-box-left d-flex flex-column" data-menu-width="310">
+
+            <div class="me-3 ms-3">
+                <span class="text-uppercase font-900 font-11 color-orange-dark">
+                    <i class="fa fa-sort px-2 mt-4 pb-3"></i>Sort by
+                </span>
+                <div class="list-group list-custom-small list-icon-0 mt-5">
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="dateform" class="color-highlight mt-n3">Filter By Date</label>
+                        <input id="dateform" type="date" @if(string.IsNullOrWhiteSpace(Model.Item4)){
+                        <text>value="@DateTime.Now.ToString("yyyy-MM-dd")"</text>
+}else{
+                        <text>value="@Model.Item4"</text>
+} style="background-color:white" onchange="dosortpatients(this.value)">
+                        <span class="mt-n5" style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                    </div>
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="" class="color-highlight ">Filter By Gender</label>
+                        <select id="" class="mt-3" style="background-color:white;-webkit-appearance: none" onchange="this.options[this.selectedIndex].value && (window.location = 'hybrid:dosortpatients?sortby=Gender&sort=' + this.options[this.selectedIndex].value);">
+                            <option value="default" hidden selected>Filter By Gender</option>
+                            @foreach (var status in Model.Item3)
+                            {
+                                <option value="in ('@status.Key')">@status.Value</option>
+                            }
+                        </select>
+                        <span class="mt-n4" style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Other Opt Sort -->
+            @*   <div class="me-3 ms-3 pt-n2">
+                <span class="text-uppercase font-900 font-11 color-orange-dark">
+                <i class="fa fa-sort px-2 mt-4 pb-3"></i>Sort by Location
+                </span>
+                <div class="list-group list-custom-small list-icon-0">
+
+                <a data-trigger-switch="sidebar-12-switch-2" href="#">
+                <i class="fa font-14 fa-circle color-green-dark"></i>
+                <span>Location 1</span>
+                <div class="custom-control scale-switch ios-switch">
+                <input type="checkbox" class="ios-input" id="sidebar-12-switch-2" checked>
+                <label class="custom-control-label" for="sidebar-12-switch-2"></label>
+                </div>
+                <i class="fa fa-angle-right"></i>
+                </a>
+                <a data-trigger-switch="sidebar-12-switch-3" href="#">
+                <i class="fa font-14 fa-circle color-green-dark"></i>
+                <span>Location 2</span>
+                <div class="custom-control scale-switch ios-switch">
+                <input type="checkbox" class="ios-input" id="sidebar-12-switch-3">
+                <label class="custom-control-label" for="sidebar-12-switch-3"></label>
+                </div>
+                <i class="fa fa-angle-right"></i>
+                </a>
+                <a data-trigger-switch="sidebar-12-switch-4" href="#">
+                <i class="fa font-14 fa-circle color-green-dark"></i>
+                <span>Location 3</span>
+                <div class="custom-control scale-switch ios-switch">
+                <input type="checkbox" class="ios-input" id="sidebar-12-switch-4">
+                <label class="custom-control-label" for="sidebar-12-switch-4"></label>
+                </div>
+                <i class="fa fa-angle-right"></i>
+                </a>
+                </div>
+                </div>*@
+            <!-- Save Setting -->
+            <div class="me-3 ms-3 mt-auto pt-n2">
+                <span class="text-uppercase font-900 font-11 color-orange-dark opacity-90">
+                    <i class="fa fa-wrench px-2 mt-4 pb-3"></i>Search Setting
+                </span>
+                <div class="list-group list-custom-small list-icon-0">
+
+                    <a data-trigger-switch="sidebar-12-switch-2" href="#">
+                        <i class="fa font-14 fa-circle color-green-dark"></i>
+                        <span>Save current filter</span>
+                        <div class="custom-control scale-switch ios-switch">
+                            <input type="checkbox" class="ios-input" id="sidebar-12-switch-2" checked>
+                            <label class="custom-control-label" for="sidebar-12-switch-2"></label>
+                        </div>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+
+
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/SearchResults.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="Sticky/plugins/Moment/Moment.min.js"></script>
+    <script type="text/javascript" src="plugins/DateRangePicker/jquery.comiseo.daterangepicker.js"></script>
+    <script>
+        function dosortpatients(sender)
+        {
+            if (sender)
+            window.location = 'hybrid:dosortpatients?sortby=Created&sort=Between \'' + sender + '\' AND \'' + new Date((new Date(sender).setDate(new Date(sender).getDate() + 1))).toISOString() + '\''
+            else
+            window.location = "hybrid:dosortpatients";
+        }
+    </script>
+    <script type="text/javascript">
+        function GetSearchTerm(){
+            return document.getElementById('PatientSearch').value;
+        }
+    </script>
+</body>

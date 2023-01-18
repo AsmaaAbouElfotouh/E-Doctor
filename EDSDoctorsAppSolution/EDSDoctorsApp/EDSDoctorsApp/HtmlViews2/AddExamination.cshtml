@@ -1,0 +1,391 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp
+@using EDSDoctorsApp.Helper.EMR;
+@model List<CustomFieldVM>
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - New Examination</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center " id="headerScope">
+            <a href="#" class="header-title">New Examination</a>
+            <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <!-- <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a> -->
+        </div>
+
+        <div class="page-content header-clear-medium">
+            <div class="card card-style">
+                <div class="content">
+                    <p class=" mb-n3 pb-0 text-truncate">@App.PatientEMR.PatientsMRNo</p>
+                    <h2 class=" pt-3 pb-3 text-truncate">@App.PatientEMR.PatientsName</h2>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-calendar"></i>@App.PatientEMR.PatientsDOB</p>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-@(App.PatientEMR.PatientsGender == "Male" ? "mars" : "venus")"></i>@App.PatientEMR.PatientsGender</p>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-phone"></i>@App.PatientEMR.PatientsMobile</p>
+                    <!-- <p class=" font-13 opacity-80"><i class="fa fa-map-marker-alt"></i> Melbourne, Victoria, Australia Collins Street</p> -->
+                </div>
+            </div>
+            <form action="hybrid:addeditexamination">
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Chief complaint</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="HistoryIllness" class="color-highlight">History Of Present Illness</label>
+                            <input name="HistoryIllness" placeholder="History Of Present Illness" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PresentIllness" class="color-highlight">Present Illness Onset</label>
+                            <select id="PresentIllness" name="PresentIllness">
+                                <option value="default" disabled selected>Present Illness Onset</option>
+                                <option value="Sudden">Sudden</option>
+                                <option value="Acute">Acute</option>
+                                <option value="Gradual">Gradual</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="DurationIllness" class="color-highlight">Duration Of Present Illness</label>
+                            <input name="DurationIllness" placeholder="Duration Of Present Illness" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Progress" class="color-highlight">Progress</label>
+                            <select id="Progress" name="Progress">
+                                <option value="default" disabled selected>Progress</option>
+                                <option value="Progressive">Progressive</option>
+                                <option value="Stationary">Stationary</option>
+                                <option value="Regressive">Regressive</option>
+                                <option value="Fluctuate">Fluctuate</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="TypeDuration" class="color-highlight">Type of Duration</label>
+                            <select id="TypeDuration" name="TypeDuration">
+                                <option value="default" disabled selected>Type of Duration</option>
+                                <option value="Days">Days</option>
+                                <option value="weeks">Weeks</option>
+                                <option value="month">Month</option>
+                                <option value="year">Year</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="New" class="color-highlight">New</label>
+                            <input name="New" placeholder="Other" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Vital Signs</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="BloodPressure" class="color-highlight">Blood Pressure</label>
+                            <input name="BloodPressure" type="text" id="BloodPressure" placeholder="Blood Pressure" />
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Temperature" class="color-highlight">Temperature</label>
+                            <input name="Temperature" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" id="Temperature" placeholder="Temperature" />
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Pulse" class="color-highlight">Pulse</label>
+                            <input name="Pulse" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" id="Pulse" placeholder="Pulse" />
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Consciousness" class="color-highlight">Consciousness</label>
+                            <select name="Consciousness" id="Consciousness">
+                                <option value="" disabled selected>Consciousness</option>
+                                <option value="Alert">Alert</option>
+                                <option value="Confusion">Confusion</option>
+                                <option value="Pain">Pain</option>
+                                <option value="Unresponsive">Unresponsive</option>
+                                <option value="Voice">Voice</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="AirOxygen" class="color-highlight">Air/Oxygen</label>
+                            <select name="AirOxygen" id="Air/Oxygen">
+                                <option value="default" disabled selected>Air/Oxygen</option>
+                                <option value="Air">Air</option>
+                                <option value="Oxygen">Oxygen</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="RespirationRate" class="color-highlight">Respiration Rate</label>
+                            <input name="RespirationRate" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="RespirationRate" placeholder="Respiration Rate" />
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="SpO2" class="color-highlight">SpO2</label>
+                            <input name="SpO2" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="SpO2" placeholder="SpO2" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Examination Notes</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="ExaminationNotes" class="color-highlight">Examination Notes</label>
+                            <input name="ExaminationNotes" placeholder="Examination Notes" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Provisional Diagnosis</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="ProvisionalDiagnosis" class="color-highlight">Provisional Diagnosis</label>
+                            <input name="ProvisionalDiagnosis" placeholder="Provisional Diagnosis" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Diagnosis</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Diagnosis" class="color-highlight">International Classification Of Disease</label>
+                            <select id="Diagnosis" name="Diagnosis" multiple="multiple">
+                                <option value="default" disabled selected>International Classification Of Disease</option>
+                                <option value="Benign recurrent meningitis [Mollaret]">Benign recurrent meningitis [Mollaret]</option>
+                                <option value="Chronic meningitis">Chronic meningitis</option>
+                                <option value="Meningitis due to other specified causes">Meningitis due to other specified causes</option>
+                                <option value="Meningitis, unspecified">Meningitis, unspecified</option>
+                                <option value="Nonpyogenic meningitis">Nonpyogenic meningitis</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="DiagnosisNotes" class="color-highlight">Diagnosis</label>
+                            <input name="DiagnosisNotes" placeholder="Diagnosis" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Physiotherapy</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PhysiotherapyTreatments" class="color-highlight">Physiotherapy Treatments And Procedures</label>
+                            <input name="PhysiotherapyTreatments" placeholder="Physiotherapy Treatments And Procedures" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="FrequencySessions" class="color-highlight">Frequency Of Sessions</label>
+                            <input name="FrequencySessions" placeholder="Frequency Of Sessions" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Procedures" class="color-highlight">Procedures</label>
+                            <select id="Procedures" name="Procedures">
+                                <option value="default" disabled selected>Procedures</option>
+                                <option value="conservative">Conservative</option>
+                                <option value="operative">Operative</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="DurationRehabilitation" class="color-highlight">Expected Duration Of Rehabilitation</label>
+                            <input name="DurationRehabilitation" placeholder="Expected Duration Of Rehabilitation" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Precautions" class="color-highlight">Precautions</label>
+                            <input name="Precautions" placeholder="Precautions" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PhysiotherapyComments" class="color-highlight">Comments</label>
+                            <input name="PhysiotherapyComments" placeholder="Comments" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="NumberSessions" class="color-highlight">Number of Sessions</label>
+                            <input name="NumberSessions" placeholder="Number of Sessions" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-style">
+                    <label for="" class="color-highlight">Plan Procedure</label>
+                    <div class="content">
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PlanProcedure" class="color-highlight">Procedure</label>
+                            <input name="PlanProcedure" placeholder="Procedure" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PlanDate" class="color-highlight">Date</label>
+                            <input type="date" style="background-color:white;-webkit-appearance: none;" name="PlanDate" value="">
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PlanStatus" class="color-highlight">Status</label>
+                            <select id="PlanStatus" name="PlanStatus">
+                                <option value="default" disabled selected>Status</option>
+                                <option value="Recommended">Recommended</option>
+                                <option value="Canceled">Canceled</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Conditional">Conditional</option>
+                                <option value="Scheduled">Scheduled</option>
+                            </select>
+                            <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PlanTime" class="color-highlight">Time</label>
+                            <input type="time" style="background-color:white;-webkit-appearance: none;" name="PlanTime" value="">
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Hospital" class="color-highlight">Hospital</label>
+                            <input name="Hospital" placeholder="Hospital" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="Complications" class="color-highlight">Complications</label>
+                            <input name="Complications" placeholder="Complications" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="FEES" class="color-highlight">Fees</label>
+                            <input name="FEES" placeholder="Fees" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PatientConcerns" class="color-highlight">Patient Concerns</label>
+                            <input name="PatientConcerns" placeholder="Patient Concerns" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="PlanNotes" class="color-highlight">Notes</label>
+                            <input name="PlanNotes" placeholder="Notes" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            @*<i class="fa fa-question-circle"></i>*@
+                            <label for="SuggestedPrice" class="color-highlight">Suggested Price</label>
+                            <input name="SuggestedPrice" placeholder="Suggested Price" />
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </div>
+                </div>
+                <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">Save</button>
+            </form>
+        </div>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+
+</body>

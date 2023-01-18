@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Anwani</value>
+  </data>
+  <data name="Alreadyregistered" xml:space="preserve">
+    <value>Tayari umesajiliwa?</value>
+  </data>
+  <data name="Alwayshereforyou" xml:space="preserve">
+    <value>Daima hapa kwa ajili yako</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>Kiarabu</value>
+  </data>
+  <data name="AssistantLecturer" xml:space="preserve">
+    <value>Mhadhiri Msaidizi</value>
+  </data>
+  <data name="Associateprofessor" xml:space="preserve">
+    <value>Profesa Mshiriki</value>
+  </data>
+  <data name="Attachements" xml:space="preserve">
+    <value>Viambatisho</value>
+  </data>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>Habari ya Msingi</value>
+  </data>
+  <data name="BookNow" xml:space="preserve">
+    <value>Kitabu</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ghairi</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Ongea</value>
+  </data>
+  <data name="ChatHistory" xml:space="preserve">
+    <value>Historia ya Gumzo</value>
+  </data>
+  <data name="ChooseaPassword" xml:space="preserve">
+    <value>Nenosiri</value>
+  </data>
+  <data name="ChoosePassword" xml:space="preserve">
+    <value>Nenosiri</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Thibitisha</value>
+  </data>
+  <data name="Confirmpassword" xml:space="preserve">
+    <value>Thibitisha nenosiri</value>
+  </data>
+  <data name="ConfirmyourPassword" xml:space="preserve">
+    <value>Thibitisha nenosiri</value>
+  </data>
+  <data name="Consultant" xml:space="preserve">
+    <value>Mshauri</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Unda Akaunti Mpya</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Tarehe</value>
+  </data>
+  <data name="Dateofbirth" xml:space="preserve">
+    <value>Tarehe ya kuzaliwa</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Utambuzi</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Daktari</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>Jina la Daktari</value>
+  </data>
+  <data name="doctouryLogin" xml:space="preserve">
+    <value>Mgonjwa wa eDoctor - Ingia</value>
+  </data>
+  <data name="Donthaveaccount" xml:space="preserve">
+    <value>Huna akaunti? Jisajili hapa</value>
+  </data>
+  <data name="Dosage" xml:space="preserve">
+    <value>Kipimo:</value>
+  </data>
+  <data name="Duraion" xml:space="preserve">
+    <value>Duraion:</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Barua pepe</value>
+  </data>
+  <data name="EnterOTP" xml:space="preserve">
+    <value>Ingiza OTP</value>
+  </data>
+  <data name="Enterthecode" xml:space="preserve">
+    <value>Tafadhali ingiza nambari ya kuthibitisha iliyotumwa kwako anwani ya barua pepe {0}. Ikiwa haujaipokea, tafadhali bonyeza</value>
+  </data>
+  <data name="EnteryourMessagehere" xml:space="preserve">
+    <value>Ingiza Ujumbe wako hapa</value>
+  </data>
+  <data name="EnteryourReason" xml:space="preserve">
+    <value>Sababu ya Ziara</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Mwanamke</value>
+  </data>
+  <data name="FemaleDoctors" xml:space="preserve">
+    <value>Madaktari wa Kike</value>
+  </data>
+  <data name="FilterByCareerLevel" xml:space="preserve">
+    <value>Chuja kwa Kiwango cha Kazi</value>
+  </data>
+  <data name="FilterByGender" xml:space="preserve">
+    <value>Chuja na Jinsia</value>
+  </data>
+  <data name="FindADoctor" xml:space="preserve">
+    <value>Tafuta Daktari</value>
+  </data>
+  <data name="FindByName" xml:space="preserve">
+    <value>Tafuta Kwa Jina</value>
+  </data>
+  <data name="FindBySpecialty" xml:space="preserve">
+    <value>Pata kwa Utaalam</value>
+  </data>
+  <data name="Findthedocoryouarelookingfor" xml:space="preserve">
+    <value>Pata hati unayotafuta</value>
+  </data>
+  <data name="Findthenearestdoctorforyou" xml:space="preserve">
+    <value>Tafuta daktari wa karibu kwako</value>
+  </data>
+  <data name="ForgotCredentials" xml:space="preserve">
+    <value>Umesahau nywila</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Fomu:</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>Mzunguko:</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Jinsia</value>
+  </data>
+  <data name="GeneralPractitioner" xml:space="preserve">
+    <value>Mtaalamu Mkuu</value>
+  </data>
+  <data name="ifyouhavenotreceived" xml:space="preserve">
+    <value>kuituma tena.</value>
+  </data>
+  <data name="Imbookingforsomeoneelse" xml:space="preserve">
+    <value>Ninaweka nafasi kwa mtu mwingine</value>
+  </data>
+  <data name="Investigations" xml:space="preserve">
+    <value>Uchunguzi</value>
+  </data>
+  <data name="InvestigationsDetails" xml:space="preserve">
+    <value>Maelezo ya Uchunguzi</value>
+  </data>
+  <data name="Keepyourdatafreshandupdated" xml:space="preserve">
+    <value>Weka data yako safi, na imesasishwa</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Mhadhiri</value>
+  </data>
+  <data name="Letsgetyoubackintoyouraccount" xml:space="preserve">
+    <value>Wacha kukurudishe kwenye akaunti yako</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Ingia</value>
+  </data>
+  <data name="Loginfordoctorsbookingandmedicalfilemanagement" xml:space="preserve">
+    <value>Ingia kwa uhifadhi wa madaktari na usimamizi wa faili ya matibabu</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Mwanaume</value>
+  </data>
+  <data name="MaleDoctors" xml:space="preserve">
+    <value>Madaktari wa Kiume</value>
+  </data>
+  <data name="Manageyourbookingsandmorewithasingletap" xml:space="preserve">
+    <value>Dhibiti uhifadhi wako na zaidi kwa bomba moja</value>
+  </data>
+  <data name="MedicationDetails" xml:space="preserve">
+    <value>Maelezo ya Dawa</value>
+  </data>
+  <data name="MedicationName" xml:space="preserve">
+    <value>Jina la Dawa</value>
+  </data>
+  <data name="Medications" xml:space="preserve">
+    <value>Dawa</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>Maelezo zaidi</value>
+  </data>
+  <data name="MyBookings" xml:space="preserve">
+    <value>uhifadhi</value>
+  </data>
+  <data name="MyFavoriteDoctors" xml:space="preserve">
+    <value>Madaktari Wangu Wapenzi</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Profaili yangu</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Jina</value>
+  </data>
+  <data name="NearestDate" xml:space="preserve">
+    <value>Tarehe ya Karibu</value>
+  </data>
+  <data name="NoResults" xml:space="preserve">
+    <value>Hakuna Matokeo</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Vidokezo:</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Nenosiri</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Simu</value>
+  </data>
+  <data name="Phone1" xml:space="preserve">
+    <value>Simu 1</value>
+  </data>
+  <data name="Phone2" xml:space="preserve">
+    <value>Simu 2</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Nambari ya simu</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Mahali</value>
+  </data>
+  <data name="Pleaseenteryournewpassword" xml:space="preserve">
+    <value>Tafadhali ingiza nywila yako mpya</value>
+  </data>
+  <data name="Professor" xml:space="preserve">
+    <value>Profesa</value>
+  </data>
+  <data name="RatingsReviews" xml:space="preserve">
+    <value>Ukadiriaji na Maoni</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Jisajili</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>(inahitajika)</value>
+  </data>
+  <data name="Reschedule" xml:space="preserve">
+    <value>Panga upya</value>
+  </data>
+  <data name="RESEND" xml:space="preserve">
+    <value>TUMA TENA</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>Weka upya Nenosiri</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Matokeo:</value>
+  </data>
+  <data name="Revisityourpreferreddoctors" xml:space="preserve">
+    <value>Tembelea tena madaktari unaopendelea</value>
+  </data>
+  <data name="SaveBasicInformation" xml:space="preserve">
+    <value>Okoa Habari Ya Msingi</value>
+  </data>
+  <data name="Scheduleanappointmentontherightdayforyou" xml:space="preserve">
+    <value>Panga miadi siku inayofaa kwako</value>
+  </data>
+  <data name="ScheduleAppointment" xml:space="preserve">
+    <value>Ratiba Uteuzi</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tafuta</value>
+  </data>
+  <data name="SearchCities" xml:space="preserve">
+    <value>Tafuta Miji</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Badilisha Lugha</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>Onyesha maelezo</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Onyesha Zaidi</value>
+  </data>
+  <data name="Signinhere" xml:space="preserve">
+    <value>Ingia hapa</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Toka nje</value>
+  </data>
+  <data name="Specialist" xml:space="preserve">
+    <value>Mtaalamu</value>
+  </data>
+  <data name="SubmitScheduleRequest" xml:space="preserve">
+    <value>Tuma Ombi la Ratiba</value>
+  </data>
+  <data name="SwitchtoArabicinterface" xml:space="preserve">
+    <value>Badilisha kwa kiolesura cha Kiarabu</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Wakati</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Aina:</value>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>Sasisha Nenosiri</value>
+  </data>
+  <data name="VisitReason" xml:space="preserve">
+    <value>Tembelea Sababu</value>
+  </data>
+  <data name="MissYou" xml:space="preserve">
+    <value>Tutakukosa, tafadhali njoo tena.</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>Jina lako</value>
+  </data>
+  <data name="Yoursearchbroughtupnoresults" xml:space="preserve">
+    <value>Utafutaji wako haukuleta matokeo. Jaribu kutumia neno tofauti.</value>
+  </data>
+  <data name="Schedules" xml:space="preserve">
+    <value>Ratiba</value>
+  </data>
+  <data name="Sortby" xml:space="preserve">
+    <value>Panga kwa</value>
+  </data>
+  <data name="SearchDistricts" xml:space="preserve">
+    <value>Tafuta Wilaya</value>
+  </data>
+  <data name="SearchSpecialty" xml:space="preserve">
+    <value>Utafutaji Maalum</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Lugha</value>
+  </data>
+  <data name="dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="dir3" xml:space="preserve">
+    <value>kushoto</value>
+  </data>
+  <data name="validateName" xml:space="preserve">
+    <value>Angalau herufi moja inapaswa kuingizwa</value>
+  </data>
+  <data name="validatePhone" xml:space="preserve">
+    <value>Nambari isiyo sahihi, lazima ianze na 0 kwa nambari za hapa, &amp; 00 kwa nambari za kimataifa</value>
+  </data>
+  <data name="LangChanged" xml:space="preserve">
+    <value>Lugha Inabadilishwa Kwa Mafanikio</value>
+  </data>
+  <data name="FillAllRequiredFields" xml:space="preserve">
+    <value>Tafadhali jaza sehemu zote zinazohitajika</value>
+  </data>
+  <data name="validateEmail" xml:space="preserve">
+    <value>Tafadhali ingiza anwani halali ya barua pepe</value>
+  </data>
+  <data name="validatePassword" xml:space="preserve">
+    <value>Tafadhali ingiza nywila yako</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Imeshindwa kuingia</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Hapa</value>
+  </data>
+  <data name="OTPResent" xml:space="preserve">
+    <value>Nambari ya OTP imechukiwa</value>
+  </data>
+  <data name="validateOTP" xml:space="preserve">
+    <value>Tafadhali ingiza nambari halali ya OTP</value>
+  </data>
+  <data name="OTPConfirmFailure" xml:space="preserve">
+    <value>Imeshindwa kuthibitisha nambari ya OTP</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Nywila hazilingani</value>
+  </data>
+  <data name="ChangePasswordFailed" xml:space="preserve">
+    <value>Imeshindwa kubadilisha nenosiri</value>
+  </data>
+  <data name="RegistrationFailed" xml:space="preserve">
+    <value>Imeshindwa kujiandikisha</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>barua pepe tayari ipo</value>
+  </data>
+  <data name="SelectGender" xml:space="preserve">
+    <value>Chagua Jinsia</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Utgång</value>
+  </data>
+  <data name="UnlinkAccount" xml:space="preserve">
+    <value>Tenganisha akaunti yako na kifaa hiki</value>
+  </data>
+  <data name="ChooseSpecialty" xml:space="preserve">
+    <value>Chagua utaalam</value>
+  </data>
+  <data name="ChooseCity" xml:space="preserve">
+    <value>Chagua jiji</value>
+  </data>
+  <data name="ChooseDistrict" xml:space="preserve">
+    <value>Chagua wilaya</value>
+  </data>
+  <data name="EnterDoctorName" xml:space="preserve">
+    <value>Ingiza jina la daktari unayemtafuta</value>
+  </data>
+  <data name="NoFavoriteDoctors" xml:space="preserve">
+    <value>Huna madaktari unaopenda kuonyesha</value>
+  </data>
+  <data name="Unfortunately" xml:space="preserve">
+    <value>Kwa bahati mbaya</value>
+  </data>
+  <data name="NoBookings" xml:space="preserve">
+    <value>Huna nafasi za kuonyesha</value>
+  </data>
+  <data name="languageSettings" xml:space="preserve">
+    <value>Mipangilio Ya Lugha</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Takwimu si sahihi</value>
+  </data>
+  <data name="EnterYourReview" xml:space="preserve">
+    <value>Ingiza ukaguzi wako</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Mapitio</value>
+  </data>
+  <data name="ContinueUsing" xml:space="preserve">
+    <value>Ingia kwa kutumia</value>
+  </data>
+  <data name="ProfileSaved" xml:space="preserve">
+    <value>Wasifu Umehifadhiwa</value>
+  </data>
+  <data name="DeleteAttachment" xml:space="preserve">
+    <value>Je, una uhakika wa kufuta kiambatisho hiki?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ndiyo</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Hapana</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Tahadhari</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Kiambatisho</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>wagonjwa</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>eneo</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Hali</value>
+  </data>
+  <data name="VisitDate" xml:space="preserve">
+    <value>Tarehe ya kutembelea</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Jina la shirika</value>
+  </data>
+  <data name="Owner Name" xml:space="preserve">
+    <value>Jina la mmiliki</value>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>Shahada</value>
+  </data>
+  <data name="Speciality" xml:space="preserve">
+    <value>Umaalumu</value>
+  </data>
+  <data name="SelectValue" xml:space="preserve">
+    <value>Chagua Thamani</value>
+  </data>
+  <data name="AddressDetails" xml:space="preserve">
+    <value>Maelezo ya Anwani</value>
+  </data>
+</root>

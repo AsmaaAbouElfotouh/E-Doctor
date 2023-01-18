@@ -1,0 +1,152 @@
+@using EDSDoctorsApp
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Helper.EMR
+@model List<GallaryVm>
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky53/app/icons/icon-192x192.png">
+    <style>
+        div.gallery-view-1,
+        div.gallery-view-2,
+        div.gallery-view-3 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .gallery-view-1 .cardImgCompare {
+            margin-bottom: 5%;
+            width: 30%;
+            float: left;
+        }
+
+        .gallery-view-2 .cardImgCompare {
+            width: 47.5%;
+            margin-bottom: 5%;
+            float: left;
+        }
+    </style>
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center " id="headerScope">
+            <p class="header-title">Gallery</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div id="footer-bar" class="footer-bar-1">
+            <a href="hybrid:gotobasicinfo"><i class="fa fa-info-circle"></i><span>Basic Info</span></a>
+            <a href="hybrid:gotovitalsigns"><i class="fa fa-heartbeat"></i><span>Vital Signs</span></a>
+            <a href="hybrid:gotogallery" class="active-nav"><i class="fa fa-images"></i><span>Gallery</span></a>
+        </div>
+        <div class="page-content header-clear-medium">
+
+            <!-- comper Floating Button -->
+            <a href="hybrid:gotocompare"
+               class="float-end position-fixed btn btn-m btn-full shadow-bg shadow-bg-m mb-3 rounded-s text-uppercase font-900 shadow-s bg-orange-dark btn-icon text-start"
+               id="CompareId"
+               style="right:30px;bottom: 10%;">
+                <!-- <i class="fa fa-check font-15 text-center"></i> -->
+                <i class="fas fa-arrows-alt-h font-15 text-center"></i> Compare selected
+                <!-- <span class="badge bg-white color-black float-end ms-4 me-n2 mt-1">4</span> -->
+            </a>
+
+            <div class="card card-style">
+                <!-- Filter Images View -->
+                <div class="gallery-view-controls">
+                    <a href="#" class="gallery-view-1 color-highlight"><i class="fa fa-th"></i></a>
+                    <a href="#" class="gallery-view-2"><i class="fa fa-th-large"></i></a>
+                    <a href="#" class="gallery-view-3"><i class="fa fa-bars"></i></a>
+                    <div class="clear"></div>
+                </div>
+                <!-- Conten -->
+                <div class="mb-0 mt-n1 m-auto">
+                    <div class="gallery-views gallery-view-1">
+                        @foreach (var image in @Model)
+                        {
+                            <div>
+                                <a data-gallery="gallery-1" href="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)" onclick="return false;" >
+                                    <img class="rounded-m preload-img shadow-l img-fluid entered loaded" alt="img" data-ll-status="loaded" src="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)">
+                                    <div class="caption">
+                                        <h4 class="color-theme">@image.Caption</h4>
+                                        <div class="divider bottom-0"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="form-check icon-check my-2">
+                                <input class="form-check-input" type="checkbox" name="ImageCheckBox" value="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)" id="@image.Caption">
+                                <label class="form-check-label" for="@image.Caption">Compare </label>
+                                <i class="icon-check-1 fa fa-circle color-gray-dark font-16 ms-2"></i>
+                                <i class="icon-check-2 fa fa-check-circle font-16 color-orange-dark ms-2"></i>
+                            </div>
+                            @*<a class="m-0 w-100 float-none" data-gallery="gallery-1" href="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)"
+                                title="@image.Caption">
+                                <img src="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)" data-src="data:image/jpg;base64,@Shared.ConvertByteArrayToBase64(image.Src)"
+                                class="rounded-m preload-img shadow-xl img-fluid" alt="img">
+                                <div class="caption px-3">
+                                <h4 class="bottom-0 color-theme">@image.Caption</h4>
+                                <p>The perfect and small notification device.</p>
+                                <div class="divider bottom-0"></div>
+                                </div>
+                                </a>*@
+                            <!--  -->
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/plugins.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $('#CompareId').hide();
+    </script>
+    <script type="text/javascript">
+        debugger;
+        $(document).ready(function(){
+          $("input").change(function()
+          {
+              var Checkedboxes = $("input:checkbox:checked");
+              var unCheckedBoxes = $("input:checkbox:not(:checked)");
+              if(Checkedboxes.length > 1)
+              {
+              unCheckedBoxes.each(function(){
+                  document.getElementById(this.id).disabled= true;
+              });
+              localStorage.setItem("FirstImage",Checkedboxes[0].value);
+              localStorage.setItem("SecondImage",Checkedboxes[1].value);
+              $('#CompareId').show();
+              }
+              else
+              {
+              unCheckedBoxes.each(function(){document.getElementById(this.id).disabled= false;})
+              $('#CompareId').hide();
+              }
+          });
+        });
+    </script>
+</body>
+</html>

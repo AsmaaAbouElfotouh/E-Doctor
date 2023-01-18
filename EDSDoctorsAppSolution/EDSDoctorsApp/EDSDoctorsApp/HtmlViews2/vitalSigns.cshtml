@@ -1,0 +1,453 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Helper.EMR
+@model (List<PatientsVital>,List<VmTrackers>)
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - Vital Signs</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center shadow-0" id="headerScope">
+            <p class="header-title">Vital Signs</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div id="footer-bar" class="footer-bar-1">
+            <a href="hybrid:gotobasicinfo"><i class="fa fa-info-circle"></i><span>Basic Info</span></a>
+            <a href="hybrid:gotovitalsigns" class="active-nav"><i class="fa fa-heartbeat"></i><span>Vital Signs</span></a>
+            <a href="hybrid:gotogallery"><i class="fa fa-images"></i><span>Gallery</span></a>
+        </div>
+        <a data-menu="newVitals"
+           class="float-end position-fixed btn btn-m btn-full shadow-bg shadow-bg-m mb-3 rounded-s text-uppercase font-900 shadow-s bg-green-dark btn-icon text-start"
+           style="right:30px;bottom: 10%;">
+            <!-- <i class="fa fa-check font-15 text-center"></i> -->
+            <i class="fa fa-plus-circle font-15 text-center"></i>Add New Vital Signs
+            <!-- <span class="badge bg-white color-black float-end ms-4 me-n2 mt-1">4</span> -->
+        </a>
+        <div class="page-content header-clear-large">
+            <div class="content">
+                <!-- Tabs -->
+                <div class="card mt-n4 fixed-top shadow" style="z-index: 3;top: 74px;" id="">
+                    <div class="content">
+                        <div class="tab-controls tabs-small tabs-rounded" data-highlight="bg-orange-dark">
+                            <a href="#" class="no-effect" data-active data-bs-toggle="collapse"
+                               data-bs-target="#tab-1"><i class="fa fa-notes-medical"></i> </a>
+                            <a href="#" class="no-effect" data-bs-toggle="collapse" data-bs-target="#tab-2">
+                                <i class="fa fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content mt-5" id="tab-group-2">
+
+                    <div class="mt-2 pt-1">
+                        <!-- Cards View -->
+                        <div data-bs-parent="#tab-group-2" class="timeline-item collapse show" id="tab-1">
+                            <div class="content">
+                                @foreach (var vital in Model.Item1)
+                                {
+                                    <div class="row">
+                                        <div class="col-7 p-0 mb-5 text-center timeline-icon w-100 bg-gray-dark " style="position:relative;left:0">
+                                            <p class="px-3 font-13 color-white font-500">@vital.Created</p>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-red-light p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-30">@vital.PatientsVitalsBloodPressure</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-heart font-15 pe-1"></i>B.P
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Blood Pressure
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-yellow-dark p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-30">@vital.PatientsVitalsTemprature &#8451;</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-temperature-low font-15 pe-1"></i>Temp
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Temperature
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-mint-dark p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-40">@vital.PatientsVitalsPulse</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-heart font-15 pe-1"></i>Pulse
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Pulse
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-mint-dark p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-40">@vital.PatientsVitalsRR</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-heart font-15 pe-1"></i>Resp RTz
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Resp RTz
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-mint-dark p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-40">@vital.PatientsVitalsSpO2</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-heart font-15 pe-1"></i>SpO2
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Resp RTz
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 p-0 mb-2">
+                                            <div class="card card-style bg-mint-dark p-0 mx-1 my-0" data-card-height="130"
+                                             style="height: 130px;">
+                                                <div class="card-top p-3">
+                                                    <h1 class="color-white font-500 font-40">@vital.PatientsVitalsRbs</h1>
+                                                </div>
+                                                <div class="card-bottom p-3">
+                                                    <h1 class="color-white mb-n1 font-600">
+                                                        <i class="fa fa-heart font-15 pe-1"></i>RBS
+                                                    </h1>
+                                                    <p class="color-white opacity-60 mb-0">
+                                                        Random Blood Sugar
+                                                    </p>
+                                                </div>
+                                                <div class="card-overlay bg-gradient opacity-20"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <!-- Chart View -->
+                        <div data-bs-parent="#tab-group-2" class="collapse " id="tab-2">
+                            <div id="container1" style="width:100%; margin:20px 0px"></div>
+                            <div id="container2" style="width:100%; margin:20px 0px"></div>
+                            <div id="container3" style="width:100%; margin:20px 0px"></div>
+                            <div id="container4" style="width:100%; margin:20px 0px"></div>
+                            <div id="container5" style="width:100%; margin:20px 0px"></div>
+                            <div id="container6" style="width:100%; margin:20px 0px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="newVitals" class="menu menu-box-bottom menu-box-detached">
+            <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+            </div>
+            <div class="menu-title mt-0 pt-0">
+                <h1>Add New Vital Signs</h1>
+                <p class="color-highlight">Patients EMR</p><a href="#" class="close-menu">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="divider divider-margins mb-n2"></div>
+
+            <div class="content">
+                <div class="list-group">
+                    <form action="hybrid:addnewvital">
+                        <!-- SELECT Chief complaint -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="BloodPressure" class="color-highlight">Blood Pressure</label>
+                            <input name="BloodPressure" type="text" id="BloodPressure" placeholder="Blood Pressure" />
+                        </div>
+                        <!-- SELECT Vital signs -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Temperature" class="color-highlight">Temperature</label>
+                            <input name="Temperature" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" id="Temperature" placeholder="Temperature" />
+                        </div>
+                        <!-- SELECT Examination -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Pulse" class="color-highlight">Pulse</label>
+                            <input name="Pulse" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" id="Pulse" placeholder="Pulse" />
+                        </div>
+                        <!-- SELECT Provisional Diagnosis -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Consciousness" class="color-highlight">Consciousness</label>
+                            <select name="Consciousness" id="Consciousness">
+                                <option value="" disabled selected>Consciousness</option>
+                                <option value="Alert">Alert</option>
+                                <option value="Confusion">Confusion</option>
+                                <option value="Pain">Pain</option>
+                                <option value="Unresponsive">Unresponsive</option>
+                                <option value="Voice">Voice</option>
+                            </select>
+                        </div>
+                        <!-- SELECT Investigations -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="Air/Oxygen" class="color-highlight">Air/Oxygen</label>
+                            <select name="AirOxygen" id="Air/Oxygen">
+                                <option value="default" disabled selected>Air/Oxygen</option>
+                                <option value="Air">Air</option>
+                                <option value="Oxygen">Oxygen</option>
+                            </select>
+                        </div>
+                        <!-- SELECT Diagnosis -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="RespirationRate" class="color-highlight">Respiration Rate</label>
+                            <input name="Respiration" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="RespirationRate" placeholder="Respiration Rate" />
+                        </div>
+                        <!-- SELECT Prescription -->
+                        <div class="input-style no-borders has-icon validate-field mb-4">
+                            <label for="SpO2" class="color-highlight">SpO2</label>
+                            <input name="SpO2" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="SpO2" placeholder="SpO2" />
+                        </div>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/highcharts.js"></script>
+
+    <script>
+
+              const datesarray = [];
+            const bparray = [];
+            const temparray = [];
+            const pulsearray = [];
+            const resparray = [];
+            const spo2array = [];
+            const rbsarray = [];
+            debugger;
+        @foreach (var vital in Model.Item1)
+        {
+            <text>datesarray.push('@vital.Created.Date.ToShortDateString()');</text>
+            <text>bparray.push(@vital.PatientsVitalsBloodPressure);</text>
+            <text>temparray.push(@vital.PatientsVitalsTemprature);</text>
+            <text>pulsearray.push(@vital.PatientsVitalsPulse);</text>
+            <text>resparray.push(@vital.PatientsVitalsRR);</text>
+            <text>spo2array.push(@vital.PatientsVitalsSpO2);</text>
+            //<text>rbsarray.push(@vital.PatientsVitalsRbs);</text>
+        }
+
+            datesarray.reverse();
+            bparray.reverse();
+            temparray.reverse();
+            pulsearray.reverse();
+            resparray.reverse();
+            spo2array.reverse();
+            //rbsarray.reverse();
+                  document.addEventListener('DOMContentLoaded', function () {
+
+                    const chart1 = Highcharts.chart('container1', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'Blood Pressure'
+                        },
+                        xAxis: {
+                            categories: datesarray
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Blood Pressure',
+                                data: bparray
+                            }
+                        ],
+                        credits: {
+                            enabled: false
+                        }
+                    });
+
+                    const chart2 = Highcharts.chart('container2', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'Temperature'
+                        },
+                        xAxis: {
+                            categories: datesarray
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Degrees'
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Celsius',
+                                data: temparray
+                            }
+                        ],
+                        credits: {
+                            enabled: false
+                        }
+                    });
+
+                    const chart3 = Highcharts.chart('container3', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'Pulse'
+                        },
+                        xAxis: {
+                            categories: datesarray
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Pulse',
+                                data: pulsearray
+                            }
+                        ],
+                        credits: {
+                            enabled: false
+                        }
+                    });
+
+
+                    const chart4 = Highcharts.chart('container4', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'Respiration Rate'
+                        },
+                        xAxis: {
+                            categories: datesarray
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Respiration Rate',
+                                data: resparray
+                            }
+                        ],
+                        credits: {
+                            enabled: false
+                        }
+                    });
+
+
+                    const chart5 = Highcharts.chart('container5', {
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: 'SpO2'
+                        },
+                        xAxis: {
+                            categories: datesarray
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Value'
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'SpO2',
+                                data: spo2array
+                            }
+                        ],
+                        credits: {
+                            enabled: false
+                        }
+                    });
+
+                    //const chart6 = Highcharts.chart('container6', {
+                    //    chart: {
+                    //        type: 'line'
+                    //    },
+                    //    title: {
+                    //        text: 'RBS'
+                    //    },
+                    //    xAxis: {
+                    //        categories: datesarray
+                    //    },
+                    //    yAxis: {
+                    //        title: {
+                    //            text: 'Value'
+                    //        }
+                    //    },
+                    //    series: [
+                    //        {
+                    //            name: 'RBS',
+                    //            data: rbsarray
+                    //        }
+                    //    ]
+                    //});
+
+                });
+
+            //var numericvals = @Model.Item2;
+    </script>
+</body>

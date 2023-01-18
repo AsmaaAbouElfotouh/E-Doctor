@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="EDSDoctorsApp.Pages.LoginPage_iOS"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:FFsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:localmodels="clr-namespace:EDSDoctorsApp.Models" BackgroundColor="White"
+    xmlns:local="clr-namespace:EDSDoctorsApp"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <WebView
+                x:Name="wvTest"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+                <WebView x:Name="wv2" HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

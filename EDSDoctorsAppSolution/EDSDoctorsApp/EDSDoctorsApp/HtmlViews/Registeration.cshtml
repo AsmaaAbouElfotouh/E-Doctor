@@ -1,0 +1,103 @@
+﻿@using EDSDoctorsApp.Resources;
+
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - Registration</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="Sticky/styles/highlights/highlight_orange.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center">
+         <p class="header-title">Registration</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="page-content header-clear-small">
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <form action="hybrid:DoRegister?" id="RegistrationForm" onsubmit="">
+                        <h1 class="text-center font-900 font-40 text-uppercase mb-0">@AppResources.Register</h1>
+                        <p class="text-center color-orange-light font-14 mt-2">@AppResources.Donthaveaccount</p>
+                        <div class="input-style no-borders has-icon validate-field">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="organizationName" class="form-control validate-name font-14" id="PatientsName" placeholder="@AppResources.Organization" required oninvalid="this.setCustomValidity(" @AppResources.validateName ")"
+                                   oninput="this.setCustomValidity('')">
+                            <label for="PatientsName" class="color-highlight fw-bold font-14 mt-1">@AppResources.Organization</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="ownerName" class="form-control validate-name font-14" id="PatientsName" placeholder="@AppResources.Name" required oninvalid="this.setCustomValidity(" @AppResources.validateName ")"
+                                   oninput="this.setCustomValidity('')">
+                            <label for="PatientsName" class="color-highlight fw-bold font-14 mt-1">@AppResources.OwnerName</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mt-2">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="phone" pattern="^01[0125][0-9]{8}$|^02[1-9][0-9]{7}$|^03[1-9][0-9]{6}$|^013\d{7}$|^0[^0123]\d{8}$|^00\d+$" class="form-control validate-field font-14" id="PatientsPhone" placeholder="@AppResources.Phone" required oninvalid="this.setCustomValidity(" @AppResources.validatePhone ")"
+                                   oninput="this.setCustomValidity('')">
+                            <label for="PatientsPhone" class="color-highlight fw-bold font-14 mt-1">@AppResources.Phone</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mt-2">
+                            <i class="fa fa-at"></i>
+                            <input type="email" name="email" class="form-control validate-email font-14" id="PatientsEmail" placeholder="@AppResources.Email" required>
+                            <label for="PatientsEmail" class="color-highlight fw-bold font-14 mt-1">@AppResources.Email</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mt-2">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" name="password" pattern="[A-Za-z0-9]{2}[A-Za-z0-9]*[ ]?[A-Za-z0-9]*" class="form-control validate-password font-14" id="Password" placeholder="@AppResources.ChoosePassword" required>
+                            <label for="Password" class="color-highlight fw-bold font-14 mt-1">@AppResources.ChoosePassword</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style no-borders has-icon validate-field mt-2">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" name="confirmPassword" pattern="[A-Za-z0-9]{2}[A-Za-z0-9]*[ ]?[A-Za-z0-9]*" class="form-control validate-password font-14" id="ConfirmedPassword" placeholder="@AppResources.Confirmpassword" required>
+                            <label for="ConfirmedPassword" class="color-highlight fw-bold font-14 mt-1">@AppResources.Confirmpassword</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <button id="submit-button" type="submit" data-back-button class="btn btn-m btn-full mt-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase">@AppResources.CreateAccount</button>
+                    </form>
+                    <div class="divider mt-4 mb-3"></div>
+                    <div class="d-flex">
+                        <div class="w-100 font-14 pb-2 color-theme pb-3 text-center">@AppResources.Alreadyregistered <a href="hybrid:GotoLogin" class="color-theme"><i class="color-orange-light">@AppResources.Signinhere</i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="toast-main" class="toast toast-tiny toast-container toast-bottom bg-orange-light" data-bs-delay="2000" data-autohide="true">
+            @*<i class="fa fa-savex fa-spinx me-3"></i>*@
+            <i class="toast-message"></i>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+    <script></script>
+</body>
+</html>

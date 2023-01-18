@@ -1,0 +1,335 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Models
+@using EDSDoctorsApp
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using Xamarin.Essentials
+@model (List<VisitsVM>,List<VisitsVM>,List<KeyValuePair<string,string>>,int,List<KeyValuePair<string,string>>)
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - Booking</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky53/app/icons/icon-192x192.png">
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center">
+            <p class="header-title">Bookings</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+
+        <div class="page-content header-clear-large">
+            <div class="card mt-n4">
+                <div class="content">
+                    <div class="tab-controls tabs-small tabs-rounded mt-3" data-highlight="bg-orange-dark">
+                        <a href="#" class="no-effect d-flex flex-row justify-content-center align-items-center gap-2"
+                           data-active data-bs-toggle="collapse" data-bs-target="#TodayTab">
+                            <i class="fa fa-calendar-day"></i> Today Visits
+                        </a>
+                        <a href="#" class="no-effect d-flex flex-row justify-content-center align-items-center gap-2"
+                           data-bs-toggle="collapse" data-bs-target="#AllTab"><i class="fa fa-history"></i>All Visits</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs content Group -->
+            <div class="content" id="tab-group-3">
+                <div class="clearfix mb-3"></div>
+                <!-- Tabs 1 -->
+                <div data-bs-parent="#tab-group-3" class="collapse show" id="TodayTab">
+                    <div class="search-box bg-white rounded-xl bottom-0">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="border-0" placeholder="Search here.." id="TodaySearch" onkeyup="Search(this,@App.LoadMoreBookingsRequest1,@App.TotalPages,'@SecureStorage.GetAsync("userToken").Result',Get_SelectedTab())">
+                        <a href="#" class="clear-search disabled mt-0 me-5">
+                            <i class="fa fa-times color-red-dark"></i>
+                        </a>
+
+                        <a data-menu="menu-sidebar-left-1" href="#">
+                            <i class="fa fa-filter color-dark-light font-12"></i>
+                        </a>
+
+                    </div>
+                    <div class="BookingContent">
+                        <!--  -->
+                        <div class="search-results disabled-search-list-XX">
+                            <div class="list-group list-custom-large">
+                                <!-- With 2 btn -->
+                                @foreach (var VisitPatient in Model.Item1)
+                                {
+                                    <div class="card card-style mt-5 overflow-visible" style="margin:0" data-filter-item
+                                     data-filter-name="all">
+                                        <div class="content">
+                                            <div class="row mb-0">
+                                                <div class="col-9">
+                                                    <p>
+                                                        <h6 class="color-gray-dark mb-n3">@VisitPatient.VisitsSndep</h6>
+                                                        <h4 class="color-dark-light font-700 font-22 mt-3">
+                                                            @VisitPatient.VisitsbookingPatientName
+                                                        </h4>
+                                                    </p>
+                                                    <h5>
+                                                        <span class="me-3">
+                                                            <span>
+                                                                <b>@VisitPatient.VisitsStatus</b>
+                                                            </span>
+                                                        </span>
+                                                    </h5>
+                                                    <h5>
+                                                        <span class="me-3">
+                                                            <span class="fa fa-clock"></span>
+                                                            <span>
+                                                                <b>@VisitPatient.VisitsScheduleDateTime</b>
+                                                            </span>
+                                                        </span>
+                                                    </h5>
+                                                    <h5>
+                                                        <span class="me-3">
+                                                            <span class="fa fa-map-pin me-3 font-11"></span>
+                                                            <span>
+                                                                <b>@VisitPatient.VisitLocation</b>
+                                                            </span>
+                                                        </span>
+                                                    </h5>
+                                                </div>
+                                                <p>
+                                                    <div class="col-12">
+                                                        <div class="d-flex flex-row gap-1 justify-content-end">
+                                                            <a href="hybrid:gotopatientsemrfrombooking?PatientID=@VisitPatient.VisitsPatientsId&PatientName=@VisitPatient.VisitsbookingPatientName&PatientMRno=@VisitPatient.VisitsSndep"
+                                                           class="btn rounded-m bg-dark-dark font-700 text-uppercase line-height-sm">Details</a>
+                                                        </div>
+                                                        @*<div class="d-flex flex-column gap-1 justify-content-evenly">
+                                                            @foreach (var action in VisitPatient.VisitActions)
+                                                            {
+                                                            if (!string.IsNullOrWhiteSpace(action.Trim()))
+                                                            {
+                                                            <a href="#"
+                                                            class="w-100 btn rounded-m bg-orange-dark font-700 text-uppercase line-height-sm">@action</a>
+                                                            }
+                                                            }
+                                                            </div>*@
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @if (App.TotalBookingsPages1 > 1)
+                            {
+                                <div class="content">
+                                    <a class="w-100 btn rounded-m bg-highlight font-700 text-uppercase line-height-sm" id="TodayVisitsShowMoreBtn" onclick="GetResources(@App.LoadMoreBookingsRequest1,@App.TotalBookingsPages1,'@SecureStorage.GetAsync("userToken").Result','TodayVisits',GetSearchTerm('TodaySearch'))">@AppResources.ShowMore</a>
+                                </div>
+                            }
+                            
+                                <div id="TodayNoSearch" class="search-no-results @if (App.TotalBookingsPages1 > 0)
+                            {<text>disabled</text>} mt-4">
+                                    <div class="card card-style">
+                                        <div class="content">
+                                            <h1>No Results</h1>
+                                            <p>
+                                                No Records Found.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tab 2 -->
+                <div data-bs-parent="#tab-group-3" class="collapse" id="AllTab">
+                    <div class="search-box bg-white rounded-xl bottom-0">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="border-0" placeholder="Search here.." id="AllSearch" onkeyup="Search(this,@App.LoadMoreBookingsRequest2,@App.TotalPages,'@SecureStorage.GetAsync("userToken").Result',Get_SelectedTab())">
+                        <a href="#" class="clear-search disabled mt-0 me-5">
+                            <i class="fa fa-times color-red-dark"></i>
+                        </a>
+
+                        <a data-menu="menu-sidebar-left-1" href="#">
+                            <i class="fa fa-filter color-dark-light font-12"></i>
+                        </a>
+
+                    </div>
+                    <div class="BookingContent2">
+                        <!-- With 2 btn -->
+                        @foreach (var VisitPatient in Model.Item2)
+                        {
+                            <div class="card card-style mt-5 overflow-visible" style="margin:0" data-filter-item
+                             data-filter-name="all">
+                                <div class="content">
+                                    <div class="row mb-0">
+                                        <div class="col-9">
+                                            <p>
+                                                <h6 class="color-gray-dark mb-n3">@VisitPatient.VisitsSndep</h6>
+                                                <h4 class="color-dark-light font-700 font-22 mt-3">
+                                                    @VisitPatient.VisitsbookingPatientName
+                                                </h4>
+                                            </p>
+                                            <h5>
+                                                <span class="me-3">
+                                                    <span>
+                                                        <b>@VisitPatient.VisitsStatus</b>
+                                                    </span>
+                                                </span>
+                                            </h5>
+                                            <h5>
+                                                <span class="me-3">
+                                                    <span class="fa fa-clock"></span>
+                                                    <span>
+                                                        <b>@VisitPatient.VisitsScheduleDateTime</b>
+                                                    </span>
+                                                </span>
+                                            </h5>
+                                            <h5>
+                                                <span class="me-3">
+                                                    <span class="fa fa-map-pin me-3 font-11"></span>
+                                                    <span>
+                                                        <b>@VisitPatient.VisitLocation</b>
+                                                    </span>
+                                                </span>
+                                            </h5>
+                                        </div>
+                                        <p>
+                                            <div class="col-12">
+                                                <div class="d-flex flex-row gap-1 justify-content-end">
+                                                    <a href="hybrid:gotopatientsemrfrombooking?PatientID=@VisitPatient.VisitsPatientsId.ToString()&PatientName=@VisitPatient.VisitsbookingPatientName&PatientMRno=@VisitPatient.VisitsSndep"
+                                                   class="btn rounded-m bg-dark-dark font-700 text-uppercase line-height-sm">Details</a>
+                                                </div>
+                                                @* <div class="d-flex flex-column gap-1 justify-content-evenly">
+                                                    @foreach (var action in VisitPatient.VisitActions)
+                                                    {
+                                                    if (!string.IsNullOrWhiteSpace(action.Trim()))
+                                                    {
+                                                    <a href="#"
+                                                    class="w-100 btn rounded-m bg-orange-dark font-700 text-uppercase line-height-sm">@action</a>
+                                                    }
+                                                    }
+                                                    </div>*@
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- btn Load more -->
+                    @if (App.TotalBookingsPages2 > 1)
+                    {
+                        <div class="content">
+                            <a class="w-100 btn rounded-m bg-highlight font-700 text-uppercase line-height-sm" id="AllVisitsShowMoreBtn" onclick="GetResources(@App.LoadMoreBookingsRequest2,@App.TotalBookingsPages2,'@SecureStorage.GetAsync("userToken").Result','AllVisits',GetSearchTerm('AllSearch'))">@AppResources.ShowMore</a>
+                        </div>
+                    }
+                    <div id="AllNoSearch" class="search-no-results @if (App.TotalBookingsPages2 > 0)
+                            {<text>disabled</text>} mt-4">
+                            <div class="card card-style">
+                                <div class="content">
+                                    <h1>No Results</h1>
+                                    <p>
+                                        No Records Found.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- SideBar -->
+        <div id="menu-sidebar-left-1" class="bg-white menu menu-box-left d-flex flex-column" data-menu-width="310">
+
+            <div class="me-3 ms-3">
+                <span class="text-uppercase font-900 font-11 color-orange-dark">
+                    <i class="fa fa-sort px-2 mt-4 pb-3"></i>Sort by
+                </span>
+                <div class="list-group list-custom-small list-icon-0">
+
+                    <!-- Filter By location -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-map-pin mt-n3"></i>
+                        <label for="" class="color-highlight ">Sort By location</label>
+                        <select id="" class="mt-3" style="background-color:white;-webkit-appearance: none" onchange="this.options[this.selectedIndex].value && (window.location = 'hybrid:dosortbooking?sortby=Location&sort=' + this.options[this.selectedIndex].value);">
+                            <option value="default" disabled selected>Sort By location</option>
+                            @foreach (var location in Model.Item5)
+                            {
+                                <option value="@location.Value">@location.Value</option>
+                            }
+                        </select>
+                        <span class="mt-n4" style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                    </div>
+
+                    <!-- Sort By Status -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-flag-checkered mt-n3"></i>
+                        <label for="" class="color-highlight ">Sort By Status</label>
+                        <select id="" class="mt-3" style="background-color:white;-webkit-appearance: none" onchange="this.options[this.selectedIndex].value && (window.location = 'hybrid:dosortbooking?sortby=VisitsStatus&sort=' + this.options[this.selectedIndex].value);">
+                            <option value="default" disabled selected>Sort By Status</option>
+                            @foreach (var status in Model.Item3)
+                            {
+                                <option value="@status.Key">@status.Value</option>
+                            }
+                        </select>
+                        <span class="mt-n4" style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+
+
+    </div>
+
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/SearchResults.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        function Get_SelectedTab()
+        {
+            var TabID = document.querySelector('.show').id;
+            if(TabID == "TodayTab")
+            return "TodayVisits";
+            else if (TabID == "AllTab")
+            return "AllVisits";
+        }
+        function GetSearchTerm(sender){
+            return document.getElementById(sender).value;
+        }
+        function Get_SelectedRequest()
+        {
+            debugger;
+            var TabID = document.querySelector('.show').id;
+            if(TabID == "TodayTab")
+            return decodeHtml("@App.LoadMoreBookingsRequest1");
+            else if (TabID == "AllTab")
+            return decodeHtml("@App.LoadMoreBookingsRequest2");
+        }
+        function decodeHtml(html) {
+            debugger;
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        }
+    </script>
+
+</body>
+</html>

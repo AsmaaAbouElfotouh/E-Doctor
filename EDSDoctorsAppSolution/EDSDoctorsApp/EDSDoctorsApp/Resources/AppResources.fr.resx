@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="Alreadyregistered" xml:space="preserve">
+    <value>Déjà enregistré?</value>
+  </data>
+  <data name="Alwayshereforyou" xml:space="preserve">
+    <value>Toujours ici pour toi</value>
+  </data>
+  <data name="Arabic" xml:space="preserve">
+    <value>arabe</value>
+  </data>
+  <data name="AssistantLecturer" xml:space="preserve">
+    <value>Assistant conférencier</value>
+  </data>
+  <data name="Associateprofessor" xml:space="preserve">
+    <value>Professeur agrégé</value>
+  </data>
+  <data name="Attachements" xml:space="preserve">
+    <value>Pièces jointes</value>
+  </data>
+  <data name="BasicInformation" xml:space="preserve">
+    <value>Informations de base</value>
+  </data>
+  <data name="BookNow" xml:space="preserve">
+    <value>Reserve</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Discuter</value>
+  </data>
+  <data name="ChatHistory" xml:space="preserve">
+    <value>Historique des discussions</value>
+  </data>
+  <data name="ChooseaPassword" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="ChoosePassword" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="Confirmpassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
+  <data name="ConfirmyourPassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
+  <data name="Consultant" xml:space="preserve">
+    <value>Consultant</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Créer un nouveau compte</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Dateofbirth" xml:space="preserve">
+    <value>Date de naissance</value>
+  </data>
+  <data name="Diagnosis" xml:space="preserve">
+    <value>Diagnostic</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Docteur</value>
+  </data>
+  <data name="DoctorName" xml:space="preserve">
+    <value>Nom du docteur</value>
+  </data>
+  <data name="doctouryLogin" xml:space="preserve">
+    <value>doctourie - Connexion</value>
+  </data>
+  <data name="Donthaveaccount" xml:space="preserve">
+    <value>Vous n'avez pas de compte ? Inscrivez-vous ici</value>
+  </data>
+  <data name="Dosage" xml:space="preserve">
+    <value>Dosage:</value>
+  </data>
+  <data name="Duraion" xml:space="preserve">
+    <value>Durée :</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EnterOTP" xml:space="preserve">
+    <value>Entrez OTP</value>
+  </data>
+  <data name="Enterthecode" xml:space="preserve">
+    <value>Veuillez saisir le code de vérification envoyé à votre adresse e-mail {0}. Si vous ne l'avez pas reçu, veuillez cliquer</value>
+  </data>
+  <data name="EnteryourMessagehere" xml:space="preserve">
+    <value>Entrez votre message ici</value>
+  </data>
+  <data name="EnteryourReason" xml:space="preserve">
+    <value>Raison de la visite</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Femelle</value>
+  </data>
+  <data name="FemaleDoctors" xml:space="preserve">
+    <value>Femmes médecins</value>
+  </data>
+  <data name="FilterByCareerLevel" xml:space="preserve">
+    <value>Filtrer par niveau de carrière</value>
+  </data>
+  <data name="FilterByGender" xml:space="preserve">
+    <value>Filtrer par sexe</value>
+  </data>
+  <data name="FindADoctor" xml:space="preserve">
+    <value>Trouver un médecin</value>
+  </data>
+  <data name="FindByName" xml:space="preserve">
+    <value>Rechercher par nom</value>
+  </data>
+  <data name="FindBySpecialty" xml:space="preserve">
+    <value>Rechercher par spécialité</value>
+  </data>
+  <data name="Findthedocoryouarelookingfor" xml:space="preserve">
+    <value>Trouvez le docteur que vous recherchez</value>
+  </data>
+  <data name="Findthenearestdoctorforyou" xml:space="preserve">
+    <value>Trouvez le médecin le plus proche pour vous</value>
+  </data>
+  <data name="ForgotCredentials" xml:space="preserve">
+    <value>Mot de passe oublié</value>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Forme:</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>La fréquence:</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="GeneralPractitioner" xml:space="preserve">
+    <value>Médecin généraliste</value>
+  </data>
+  <data name="ifyouhavenotreceived" xml:space="preserve">
+    <value>pour le renvoyer.</value>
+  </data>
+  <data name="Imbookingforsomeoneelse" xml:space="preserve">
+    <value>je réserve pour quelqu'un d'autre</value>
+  </data>
+  <data name="Investigations" xml:space="preserve">
+    <value>Enquêtes</value>
+  </data>
+  <data name="InvestigationsDetails" xml:space="preserve">
+    <value>Détails des enquêtes</value>
+  </data>
+  <data name="Keepyourdatafreshandupdated" xml:space="preserve">
+    <value>Gardez vos données fraîches et mises à jour</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Maître de conférences</value>
+  </data>
+  <data name="Letsgetyoubackintoyouraccount" xml:space="preserve">
+    <value>Revenons à votre compte</value>
+  </data>
+  <data name="login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Loginfordoctorsbookingandmedicalfilemanagement" xml:space="preserve">
+    <value>Login pour la prise de rendez-vous chez les médecins et la gestion des dossiers médicaux</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Homme</value>
+  </data>
+  <data name="MaleDoctors" xml:space="preserve">
+    <value>Médecins de sexe masculin</value>
+  </data>
+  <data name="Manageyourbookingsandmorewithasingletap" xml:space="preserve">
+    <value>Gérez vos réservations et bien plus en un seul clic</value>
+  </data>
+  <data name="MedicationDetails" xml:space="preserve">
+    <value>Détails sur les médicaments</value>
+  </data>
+  <data name="MedicationName" xml:space="preserve">
+    <value>Nom du médicament</value>
+  </data>
+  <data name="Medications" xml:space="preserve">
+    <value>Médicaments</value>
+  </data>
+  <data name="MoreInfo" xml:space="preserve">
+    <value>Plus d'informations</value>
+  </data>
+  <data name="MyBookings" xml:space="preserve">
+    <value>réservations</value>
+  </data>
+  <data name="MyFavoriteDoctors" xml:space="preserve">
+    <value>Mes médecins préférés</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Mon profil</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="NearestDate" xml:space="preserve">
+    <value>Date la plus proche</value>
+  </data>
+  <data name="NoResults" xml:space="preserve">
+    <value>Aucun résultat</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Remarques:</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Téléphoner</value>
+  </data>
+  <data name="Phone1" xml:space="preserve">
+    <value>Téléphone 1</value>
+  </data>
+  <data name="Phone2" xml:space="preserve">
+    <value>Téléphone 2</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Endroit</value>
+  </data>
+  <data name="Pleaseenteryournewpassword" xml:space="preserve">
+    <value>Veuillez saisir votre nouveau mot de passe</value>
+  </data>
+  <data name="Professor" xml:space="preserve">
+    <value>Professeur</value>
+  </data>
+  <data name="RatingsReviews" xml:space="preserve">
+    <value>Évaluations et commentaires</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>(obligatoire)</value>
+  </data>
+  <data name="Reschedule" xml:space="preserve">
+    <value>Replanifier</value>
+  </data>
+  <data name="RESEND" xml:space="preserve">
+    <value>RENVOYER</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>réinitialiser le mot de passe</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Résultat:</value>
+  </data>
+  <data name="Revisityourpreferreddoctors" xml:space="preserve">
+    <value>Re-visitez vos médecins préférés</value>
+  </data>
+  <data name="SaveBasicInformation" xml:space="preserve">
+    <value>Enregistrer les informations de base</value>
+  </data>
+  <data name="Scheduleanappointmentontherightdayforyou" xml:space="preserve">
+    <value>Prenez rendez-vous le jour qui vous convient</value>
+  </data>
+  <data name="ScheduleAppointment" xml:space="preserve">
+    <value>Rendez-vous</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchCities" xml:space="preserve">
+    <value>Rechercher des villes</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Changer de langue</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>Afficher les détails</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Montre plus</value>
+  </data>
+  <data name="Signinhere" xml:space="preserve">
+    <value>Se connecter ici</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="Specialist" xml:space="preserve">
+    <value>Spécialiste</value>
+  </data>
+  <data name="SubmitScheduleRequest" xml:space="preserve">
+    <value>Soumettre une demande d'horaire</value>
+  </data>
+  <data name="SwitchtoArabicinterface" xml:space="preserve">
+    <value>Passer à l'interface arabe</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Temps</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Taper:</value>
+  </data>
+  <data name="UpdatePassword" xml:space="preserve">
+    <value>Mettre à jour le mot de passe</value>
+  </data>
+  <data name="VisitReason" xml:space="preserve">
+    <value>Raison de la visite</value>
+  </data>
+  <data name="MissYou" xml:space="preserve">
+    <value>Vous nous manquerez, revenez s'il vous plaît.</value>
+  </data>
+  <data name="YourName" xml:space="preserve">
+    <value>votre nom</value>
+  </data>
+  <data name="Yoursearchbroughtupnoresults" xml:space="preserve">
+    <value>Votre recherche n'a donné aucun résultat. Essayez d'utiliser un mot-clé différent.</value>
+  </data>
+  <data name="Schedules" xml:space="preserve">
+    <value>Des horaires</value>
+  </data>
+  <data name="Sortby" xml:space="preserve">
+    <value>Trier par</value>
+  </data>
+  <data name="SearchDistricts" xml:space="preserve">
+    <value>Rechercher des quartiers</value>
+  </data>
+  <data name="SearchSpecialty" xml:space="preserve">
+    <value>Recherche de spécialité</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="dir" xml:space="preserve">
+    <value>ltr</value>
+  </data>
+  <data name="dir3" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="validateName" xml:space="preserve">
+    <value>Au moins un caractère doit être saisi</value>
+  </data>
+  <data name="validatePhone" xml:space="preserve">
+    <value>Numéro erroné, il doit commencer par 0 pour les numéros locaux, &amp; 00 pour les numéros internationaux</value>
+  </data>
+  <data name="LangChanged" xml:space="preserve">
+    <value>La langue a été modifiée avec succès</value>
+  </data>
+  <data name="FillAllRequiredFields" xml:space="preserve">
+    <value>Veuillez remplir tous les champs obligatoires</value>
+  </data>
+  <data name="validateEmail" xml:space="preserve">
+    <value>S'il vous plaît, mettez une adresse email valide</value>
+  </data>
+  <data name="validatePassword" xml:space="preserve">
+    <value>s'il vous plait entrez votre mot de passe</value>
+  </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Échec de la connexion</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Ici</value>
+  </data>
+  <data name="OTPResent" xml:space="preserve">
+    <value>Le code OTP a été renvoyé</value>
+  </data>
+  <data name="validateOTP" xml:space="preserve">
+    <value>Veuillez entrer un code OTP valide</value>
+  </data>
+  <data name="OTPConfirmFailure" xml:space="preserve">
+    <value>Échec de la confirmation du code OTP</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Les mots de passe ne correspondent pas</value>
+  </data>
+  <data name="ChangePasswordFailed" xml:space="preserve">
+    <value>Échec de la modification du mot de passe</value>
+  </data>
+  <data name="RegistrationFailed" xml:space="preserve">
+    <value>Échec de l'enregistrement</value>
+  </data>
+  <data name="EmailExists" xml:space="preserve">
+    <value>l'email existe déjà</value>
+  </data>
+  <data name="SelectGender" xml:space="preserve">
+    <value>Choisissez le sexe</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Sortir</value>
+  </data>
+  <data name="UnlinkAccount" xml:space="preserve">
+    <value>Dissocier votre compte de cet appareil</value>
+  </data>
+  <data name="ChooseSpecialty" xml:space="preserve">
+    <value>Choisissez une spécialité</value>
+  </data>
+  <data name="ChooseCity" xml:space="preserve">
+    <value>Choisissez une ville</value>
+  </data>
+  <data name="ChooseDistrict" xml:space="preserve">
+    <value>Choisissez un quartier</value>
+  </data>
+  <data name="EnterDoctorName" xml:space="preserve">
+    <value>Entrez le nom du médecin que vous recherchez</value>
+  </data>
+  <data name="NoFavoriteDoctors" xml:space="preserve">
+    <value>Vous n'avez pas de médecins préférés à afficher</value>
+  </data>
+  <data name="Unfortunately" xml:space="preserve">
+    <value>Malheureusement</value>
+  </data>
+  <data name="NoBookings" xml:space="preserve">
+    <value>Vous n'avez pas de réservations à afficher</value>
+  </data>
+  <data name="languageSettings" xml:space="preserve">
+    <value>Paramètres De Langue</value>
+  </data>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Données invalides</value>
+  </data>
+  <data name="EnterYourReview" xml:space="preserve">
+    <value>Entrez votre avis</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Commentaires</value>
+  </data>
+  <data name="ContinueUsing" xml:space="preserve">
+    <value>Connectez-vous en utilisant</value>
+  </data>
+  <data name="ProfileSaved" xml:space="preserve">
+    <value>Profil enregistré</value>
+  </data>
+  <data name="DeleteAttachment" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer cette pièce jointe?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Attention</value>
+  </data>
+  <data name="Attachment" xml:space="preserve">
+    <value>Attachement</value>
+  </data>
+  <data name="Patients" xml:space="preserve">
+    <value>les patients</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>lieu</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="VisitDate" xml:space="preserve">
+    <value>Date de visite</value>
+  </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Nom de l'organisation</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>Le nom du propriétaire</value>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>degré scientifique</value>
+  </data>
+  <data name="Speciality" xml:space="preserve">
+    <value>Spécialité</value>
+  </data>
+  <data name="SelectValue" xml:space="preserve">
+    <value>Sélectionnez la valeur</value>
+  </data>
+  <data name="AddressDetails" xml:space="preserve">
+    <value>Détails de l'adresse</value>
+  </data>
+</root>

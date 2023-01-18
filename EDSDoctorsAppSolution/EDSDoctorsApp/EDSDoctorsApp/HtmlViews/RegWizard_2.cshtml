@@ -1,0 +1,235 @@
+﻿@*@model dynamic*@
+@using EDSDoctorsApp.Resources
+<!DOCTYPE html>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - My Profile</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="Sticky/fonts/css/fontawesome-all.min.css" />
+    <link href="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+    <link rel="manifest"
+          href="_manifest.json"
+          data-pwa-version="set_in_manifest_and_pwa_js" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="Sticky/app/icons/icon-192x192.png" />
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light"
+      data-highlight="highlight-dark"
+      data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center header-auto-showx">
+            <i class="header-title"><img class="img-fluidx ps-3 pe-3" style="height:30px" src="Sticky/images/eDoctorGroupLight.png"></i>
+            @*<a href="page-forgot-1.html#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>*@
+        </div>
+        <div class="page-content header-clear-medium">
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <h2 class="mb-4 color-orange-light">@AppResources.AddressDetails</h2>
+                    <input class="hfPGUID" type="hidden" value="" />
+
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <label for="form5" class="color-highlight font-14 mt-1">Country</label>
+                        <select id="form5" name="Country" class="form-control ddlcountry" required>
+                            <option value="default" disabled selected>
+                                @AppResources.SelectValue
+                            </option>
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                        </select>
+
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em>@AppResources.required</em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <label for="form5" class="color-highlight font-14 mt-1">City</label>
+                        <select id="form5" name="City" class="form-control ddlcity" required>
+                            <option value="default" disabled selected>
+                                @AppResources.SelectValue
+                            </option>
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                        </select>
+
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em>@AppResources.required</em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <label for="form5" class="color-highlight font-14 mt-1">District</label>
+                        <select id="form5" name="District" class="form-control ddldistrict">
+                            <option value="default" disabled selected>
+                                @AppResources.SelectValue
+                            </option>
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                        </select>
+
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <input type="text" name="AddressBuilding" class="form-control validate-name font-14" id="AddressBuilding" placeholder="Building No." value="">
+                        <label for="PatientsName" class="color-highlight font-14 mt-1">Building No.</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em></em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <input type="text" name="AddressStreet" class="form-control validate-name font-14" id="AddressStreet" placeholder="Street" value="">
+                        <label for="PatientsName" class="color-highlight font-14 mt-1">Street</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em></em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <input type="text" name="AddressPostal" class="form-control validate-name font-14" id="AddressPostal" placeholder="Postal Code" value="">
+                        <label for="PatientsName" class="color-highlight font-14 mt-1">Postal Code</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em></em>
+                    </div>
+                    <div class="input-style input-style-active has-borders validate-field mb-4">
+                        <input type="text" name="AddressLandmark" class="form-control validate-name font-14" id="AddressLandmark" placeholder="Landmark" value="">
+                        <label for="PatientsName" class="color-highlight font-14 mt-1">Landmark</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em></em>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-style">
+                    <div class="content mb-2">
+                        <h2 class="mb-4 color-orange-light">@AppResources.Schedules</h2>
+                        <table class="table table-borderless text-center rounded-sm shadow-l" style="overflow: hidden;table-layout:auto;">
+                            <thead>
+                                <tr class="bg-night-light">
+                                    <th scope="col" class="color-white">Day</th>
+                                    <th scope="col" class="color-white">From</th>
+                                    <th scope="col" class="color-white">To</th>
+                                    <th scope="col" class="color-white">Max Visits</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Saturday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sunday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Monday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tuesday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wednesday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Thursday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                               <tr>
+                                    <th scope="row">Friday</th>
+                                    <td><input type="time" /></td>
+                                    <td><input type="time" /></td>
+                                    <td><input type="number" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+        <div id="toast-main" class="toast toast-tiny toast-container toast-bottom bg-orange-light" data-bs-delay="2000" data-autohide="true">
+            @*<i class="fa fa-savex fa-spinx me-3"></i>*@
+            <i class="toast-message"></i>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+
+    <script src="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.js"></script>
+    <script>
+        function convertImagetoBytes()
+        {
+
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#PatientsDOB').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                clearBtn: true,
+            });
+            $(".ddlgender > [value=" + $('.hfGender').val() + "]").attr("selected", "true");
+        });
+        function ChangeProfile(sender)
+        {
+             debugger;
+                console.log($('.hfPGUID').val());
+            var reader = new FileReader();
+        reader.onload = function () { $("#userImg").attr("src", reader.result); $("#hiddenImg").attr("value", reader.result); }
+        reader.readAsDataURL(sender.files[0]);
+                var files = sender.files[0];
+                $.ajax({
+                    type: "post",
+                    async: true,
+                    dataType: "json",
+                    url: GlobalUrl + "ChangeProfilePicture",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "file": files, "PGUID": $('.hfPGUID').val() }),
+                    success: function (response, $Id) {
+                        debugger;
+                    },
+                    error: function (error) {
+                        var g = error;
+                    },
+                });
+        }
+        function ChangeLang(sender) {
+            debugger;
+            var Lang = $(sender).val();
+            window.location = "hybrid:DoChangeLanguage?PGUID=" + $('.hfPGUID').val() + "&Lang=" + Lang;
+        }
+
+        function Uploadimg() {
+            $('.upload-file').trigger('click');
+        }</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model List<EDSDoctorsApp.Models.LanguagesModel>
+@using EDSDoctorsApp.Resources
+
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - Login</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="page">
+        <div class="page-content pb-0 mt-25">
+            <div class="card" data-card-height="cover">
+                <div class="page-content header-clear-small">
+                    <div class="mt-5 card-style">
+                        <div class="content mt-4 mb-0">
+                            <h1 class="text-center font-900 font-40 text-uppercase mb-0">@AppResources.login</h1>
+                            <p class="bottom-0 text-center color-orange-light mt-2 font-14">@AppResources.Loginfordoctorsbookingandmedicalfilemanagement</p>
+                            <form action="hybrid:DoLogin" id="loginForm" onsubmit="">
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-at"></i>
+                                    <input type="email" name="email" title="XYZ" class="form-control validate-name font-14 " id="email" placeholder="@AppResources.Email" required oninvalid="if (this.validity.typeMismatch){this.setCustomValidity('@AppResources.validateEmail')};this.setCustomValidity('@AppResources.validateEmail')" oninput="this.setCustomValidity('')" />
+                                    <label for="email" class="color-highlight fw-bold font-14">@AppResources.Email</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <em>@AppResources.required</em>
+                                </div>
+                                <div class="input-style no-borders has-icon validate-field mb-4">
+                                    <i class="fa fa-lock"></i>
+                                    <input type="password" pattern="[A-Za-z0-9]{2}[A-Za-z0-9]*[ ]?[A-Za-z0-9]*" class="form-control validate-password font-14 " name="password" id="password" placeholder="@AppResources.Password" required oninvalid="this.setCustomValidity('@AppResources.validatePassword')" oninput="this.setCustomValidity('')" />
+                                    <label for="password" class="color-highlight fw-bold font-14">@AppResources.Password</label>
+                                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <em>@AppResources.required</em>
+                                </div>
+
+                                <button id="submit-button" type="submit" data-back-buttonx class="btn btn-m btn-full mt-4 rounded-l shadow-xl bg-highlight text-uppercase">@AppResources.login</button>
+                            </form>
+                            <div class="divider mt-4 mb-3"></div>
+                            <div class="d-flex">
+                                <div class="w-50 font-14 pb-2 pb-3 text-start"><a href="hybrid:GotoRegistration" class="color-orange-light CreateAccount">@AppResources.CreateAccount</a></div>
+                                <div class="w-50 font-14 pb-2 pb-3 text-end"><a onclick="ForgetPassword(this)" class="color-orange-light">@AppResources.ForgotCredentials</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="toast-main" class="toast toast-tiny toast-container toast-bottom bg-orange-light" data-bs-delay="2000" data-autohide="true">
+            @*<i class="fa fa-savex fa-spinx me-3"></i>*@
+            <i class="toast-message"></i>
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+
+    <script>
+        function ForgetPassword(sender) {
+                    $(sender).attr("href", "hybrid:GotoForgotPassword?email=" + $('#email').val());
+                }</script>
+</body>
+</html>

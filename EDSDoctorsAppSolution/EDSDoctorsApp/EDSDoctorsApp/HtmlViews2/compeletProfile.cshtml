@@ -1,0 +1,509 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.Helper
+@using EDSDoctorsApp.Models
+@using EDSDoctorsApp.Helper.EMR
+@using System.Collections.Generic
+@model CompleteProfileViews
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor | Compelet profile data</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+       <link rel="stylesheet" type="text/css" href="Sticky53/styles/select2.min.css">
+    <link href="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+    <script src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/select2.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap-tagsinput.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/moment.min.js"></script>
+    <script src="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/CompleteProfile.js"></script>
+
+    <style>
+            .select2-container {
+            width: 100% !important;
+            padding: 0;
+            }
+    </style>
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <!-- Header -->
+        <div class="header header-fixed header-logo-center">
+           <p class="header-title">Complete your profile</p>
+            <a href="hybrid:goback" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <!-- Footer -->
+        <!-- Page Content -->
+        <div class="page-content header-clear-large">
+            <div class="card card-style">
+                <div class="content">
+                    <h4>Welcom to e-Docotr App</h4>
+                    <p class="">
+                        Because this a first time, Please Compelet you profile data:
+                    </p>
+                    <div class="check-visited list-custom-large list-group short-border">
+                        <a href="#" data-menu="menu-wizard-step-1" class="show-offline">
+                            <i class="fa fa-user-circle bg-dark-dark rounded-s"></i>
+                            <span>Profile data</span>
+                            <strong>Compelete information.</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Basic Data -->
+        <form id="DoctorProfileForm">
+        <div id="menu-wizard-step-1" class="menu menu-box-left" data-menu-height="cover" data-menu-width="cover">
+            <div class="card card-style bg-transparent shadow-0 mb-0 overflow-visible" style="height:100%;">
+                <div class="card-top mt-4">
+                    <!-- Steper -->
+                    <div class="d-flex pb-3 mb-n4">
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="me-auto font-600 rounded-l text-center bg-orange-dark">
+                            <i class="fa fa-user-nurse"></i>
+                        </a>
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="m-auto font-600 rounded-l text-center bg-gray-light">
+                            <i class="fa fa-address-card"></i>
+                        </a>
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="ms-auto font-600 rounded-l text-center bg-gray-light ">
+                            <i class="fa fa-check-circle"></i>
+                        </a>
+                    </div>
+                    <div class="divider position-absolute start-0 end-0 mt-n2" style="z-index:-1;"></div>
+
+                    <h1 class="pt-4 mt-3 mb-n1">Compelet you Basic data</h1>
+                    <p class="px-2">Please fill all data</p>
+                    <!-- Name -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-user"></i>
+                      <input type="text" class="form-control validate-name" 
+                        id="DoctorName" 
+                        name="DoctorName"
+                        placeholder="Name..">
+                        <label for="DoctorName" class="color-highlight">Name</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- Name .. -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-user"></i>
+                        <input type="text" 
+                            class="form-control validate-name" 
+                            name="OrganizationName" 
+                            id="OrganizationName" placeholder="Name">
+                        <label for="OrganizationName" class="color-highlight">Name(..)</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                    </div>
+                    <!-- SELECT A GENDER -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-venus-mars"></i>
+                        <label for="DoctorGender" class="color-highlight">Select Gender</label>
+                        <select class="SearchSelect" id="DoctorGender" 
+                            name="DoctorGender">
+                            <option value="default" disabled selected>Select Gender</option>
+                            @foreach (var item in Model.Gender)
+                            {
+                              <option value="@item.Name">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT DEGREE -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-graduation-cap"></i>
+                        <label for="DoctorDegree" class="color-highlight">Select degree</label>
+                        <select class="DoctorDegree" id="DoctorDegree" name="DoctorDegree">
+                            <option value="default" disabled selected>Select degree</option>
+                             @foreach (var item in Model.Degree)
+                            {
+                              <option value="@item.Name">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- SELECT specialist -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-user-tag"></i>
+                        <label for="DoctorSpeciality" 
+                        class="color-highlight">Select specialist</label>
+                        <select class="SearchSelect" id="DoctorSpeciality"
+                        name="DoctorSpeciality">
+                            <option value="default" disabled selected>Select specialist</option>
+                            <option value="">specialist 1</option>
+                              @foreach (var item in Model.Specialties)
+                            {
+                              <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                </div>
+                <!-- Btns -->
+                <div class="card-bottom mb-0 pb-3 d-flex justify-content-between">
+                <a href="hybrid:gotohomepage"
+                      class="close-menu btn btn-full btn-m rounded-m bg-orange-dark font-700 text-uppercase">Skip</a>
+                    <a href="#" data-menu="menu-wizard-step-2" id="ProfileNextBtn" onclick="Next()"
+                       class="btn btn-m rounded-m bg-orange-dark font-700 text-uppercase">Next Step</a>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!-- Add Address -->  
+        <form id="DoctorAddressesForm">
+            <div id="menu-wizard-step-2" class="menu menu-box-left" data-menu-height="cover" data-menu-width="cover">
+            <div class="card card-style bg-transparent shadow-0 mb-0 overflow-visible" style="height:100%">
+                <div class="card-top mt-4">
+                    <!-- Steper -->
+                    <div class="d-flex pb-3 mb-n4">
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="me-auto font-600 rounded-l text-center bg-gray-light">
+                            <i class="fa fa-user-nurse"></i>
+                        </a>
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="m-auto font-600 rounded-l text-center bg-orange-dark ">
+                            <i class="fa fa-address-card"></i>
+                        </a>
+                        <a href="#" style="width:35px; line-height:35px;"
+                           class="ms-auto font-600 rounded-l text-center bg-gray-light ">
+                            <i class="fa fa-check-circle"></i>
+                        </a>
+                    </div>
+                    <div class="divider position-absolute start-0 end-0 mt-n2" style="z-index:-1;"></div>
+
+                    <h1 class="pt-4 mt-3 mb-n1">Compelet you address</h1>
+                    <p class="px-2">Please fill all data</p>
+                    <!-- SELECT  Country -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-city"></i>
+                        <label for="LocationsCountry"
+                        class="color-highlight">Select Country</label>
+                        <select class="SearchSelect" id="LocationsCountry"
+                        name="LocationsCountry"
+                       @* onchange="CountryChange($this)"*@ >
+                            <option value="default" disabled selected>Select Country</option>
+                             @foreach (var item in Model.Countries)
+                            {
+                              <option value="@item.Name">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- SELECT  City -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-location-arrow"></i>
+                        <label for="LocationsCity" 
+                        class="color-highlight">Select City</label>
+                         <select class="SearchSelect" id="LocationsCity"
+                         name="LocationsCity">
+                            <option value="default" disabled selected>Select City</option>
+                            <option value="">City 1</option>
+                           @foreach (var item in Model.Cities)
+                            {
+                              <option value="@item.Name">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- SELECT  district -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-map-marked"></i>
+                        <label for="LocationsDistrict" 
+                        class="color-highlight">Select district</label>
+                        <select class="SearchSelect" id="LocationsDistrict" 
+                        name="LocationsDistrict" >
+                            <option value="default" disabled selected>Select district</option>
+                           @foreach (var item in Model.Districts)
+                            {
+                              <option value="@item.Name">@item.Name</option>
+                            }
+                        </select>
+                        <span style="width:8.75px;height:60%;"><i class="fa fa-chevron-down"></i></span>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <i class="fa fa-check disabled invalid color-red-dark"></i>
+                        <em></em>
+                    </div>
+                    <!-- Building N.O. -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-building"></i>
+                        <input type="text" class="form-control validate-name" 
+                        name="LocationsBuilding"
+                        id="LocationsBuilding" placeholder="Building N.O.">
+                        <label for="LocationsBuilding"
+                        class="color-highlight">Building N.O.</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- Street -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-sign"></i>
+                        <input type="text" class="form-control validate-name" 
+                         name="LocationsStreet"
+                        id="LocationsStreet" placeholder="Street">
+                        <label for="LocationsStreet" 
+                        class="color-highlight">Street</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- Postal Code -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-map-pin"></i>
+                        <input type="text" class="form-control validate-name"
+                         name="LocationsPostalCode"
+                        id="LocationsPostalCode" placeholder="Postal Code">
+                        <label for="LocationsPostalCode"
+                        class="color-highlight">Postal Code</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- Landmark -->
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control validate-name" 
+                        id="LocationsLandmark"
+                        name="LocationsLandmark"
+                        placeholder="Landmark">
+                        <label for="LocationsLandmark"
+                        class="color-highlight">Landmark</label>
+                        <i class="fa fa-times disabled invalid color-red-dark"></i>
+                        <i class="fa fa-check disabled valid color-green-dark"></i>
+                        <em>(required)</em>
+                    </div>
+                    <!-- Schedule -->
+                    <div class="content mb-2">
+                             <h3 class="mb-n1"> <i class="fa fa-clock"></i> Working hours: </h3>
+                             <p class="px-4">you can set up your schedule</p>
+                             <table class="table table-borderless text-center text-black-50 rounded-sm shadow-l"
+                                    style="overflow: hidden;">
+                                 <thead>
+                                     <tr class="bg-dark-dark">
+                                         <th scope="col" class="color-white">Day</th>
+                                         <th scope="col" class="color-white">From</th>
+                                         <th scope="col" class="color-white">To</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr>
+                                         <th scope="row">Saturday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[0].Days"
+                                                    name="Schedule[0].Days"
+                                                    value="Saturday" />
+                                             <input type="time" class="form-control" id="Schedule[0].StartTime"
+                                                    name="Schedule[0].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[0].EndTime"
+                                                    name="Schedule[0].EndTime">
+                                         </td>
+                                     </tr>
+
+                                     <tr>
+                                         <th scope="row">Sunday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[1].Days"
+                                                    name="Schedule[1].Days"
+                                                    value="Sunday" />
+                                             <input type="time" class="form-control" id="Schedule[1].StartTime"
+                                                    name="Schedule[1].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[1].EndTime"
+                                                    name="Schedule[1].EndTime">
+                                         </td>
+                                     </tr>
+
+                                     <tr>
+                                         <th scope="row">Monday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[2].Days"
+                                                    name="Schedule[2].Days"
+                                                    value="Monday" />
+                                             <input type="time" class="form-control" id="Schedule[2].StartTime"
+                                                    name="Schedule[2].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[2].EndTime"
+                                                    name="Schedule[2].EndTime">
+                                         </td>
+                                     </tr>
+
+
+
+                                     <tr>
+                                         <th scope="row">Tuesday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[3].Days"
+                                                    name="Schedule[3].Days"
+                                                    value="Tuesday" />
+                                             <input type="time" class="form-control" id="Schedule[3].StartTime"
+                                                    name="Schedule[3].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[3].EndTime"
+                                                    name="Schedule[3].EndTime">
+                                         </td>
+                                     </tr>
+
+
+                                     <tr>
+                                         <th scope="row">Wednesday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[4].Days"
+                                                    name="Schedule[4].Days"
+                                                    value="Wednesday" />
+                                             <input type="time" class="form-control" id="Schedule[4].StartTime"
+                                                    name="Schedule[4].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[4].EndTime"
+                                                    name="Schedule[4].EndTime">
+                                         </td>
+                                     </tr>
+
+
+                                     <tr>
+                                         <th scope="row">Thursday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[5].Days"
+                                                    name="Schedule[5].Days"
+                                                    value="Thursday" />
+                                             <input type="time" class="form-control" id="Schedule[5].StartTime"
+                                                    name="Schedule[5].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[5].EndTime"
+                                                    name="Schedule[5].EndTime">
+                                         </td>
+                                     </tr>
+
+                                     <tr>
+                                         <th scope="row">Friday</th>
+
+                                         <td class="color-green-dark">
+                                             <input type="hidden" class="form-control "
+                                                    id="Schedule[6].Days"
+                                                    name="Schedule[6].Days"
+                                                    value="Friday" />
+                                             <input type="time" class="form-control" id="Schedule[6].StartTime"
+                                                    name="Schedule[6].StartTime">
+                                         </td>
+                                         <td>
+                                             <input type="time" class="form-control" id="Schedule[6].EndTime"
+                                                    name="Schedule[6].EndTime">
+                                         </td>
+                                     </tr>
+
+                                 </tbody>
+                             </table>
+                         </div>                   
+                    <!-- Btns -->
+                    <div class="card-bottomX mt-5 pb-3 d-flex justify-content-between">
+                        <a href="#" data-menu="menu-wizard-step-1"  id="PrevBtn" onclick="Prev()"
+                           class="btn btn-m rounded-m bg-orange-dark font-700 text-uppercase">Prev Step</a>
+
+                         <a href="#"  data-menu="menu-wizard-step-1" id="NextBtn" onclick="Next()"
+                                class="btn btn-m rounded-m bg-orange-dark font-700 text-uppercase" >Next Step</a>
+
+                        <a href="#" class="btn btn-m rounded-m bg-orange-dark font-700 text-uppercase"
+                        id="AddAddressBtn" onclick="SaveDoctorAddresses()" >Add Address</a>
+
+                        <a href="#" data-menu="menu-wizard-step-4"  onclick="SaveCompleteProfile()"
+                           class="btn btn-m rounded-m bg-orange-dark font-700 text-uppercase">Finish</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </form>
+      
+        <div id="menu-wizard-step-4" class="menu menu-box-left" data-menu-height="cover" data-menu-width="cover">
+            <div class="card card-style bg-transparent shadow-0 mb-0" style="height:100%;">
+                <div class="card-center text-center">
+                    <i class="fa fa-check-circle scale-box color-green-dark fa-5x pb-3"></i>
+                    <h1>Thank you!</h1>
+                    <p class="px-3 mb-5">
+                        We'll get back to you if we need clarifications. Thank you for taking our survay!
+                    </p>
+                </div>
+                <div class="card-bottom mb-5 pb-3">
+                    <a href="hybrid:gotohomepage"
+                       class="close-menu btn btn-full btn-m rounded-m bg-green-dark font-700 text-uppercase">Awesome!</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+     
+$(window).load(function() {
+
+    //$('.SearchSelect').select2({ width: 'resolve' });
+    $('.datepicker').datepicker({
+        format: "dd/mm/yyyy",
+        autoclose: true,
+        clearBtn: true,
+    });
+});
+  
+    </script>
+
+</body>

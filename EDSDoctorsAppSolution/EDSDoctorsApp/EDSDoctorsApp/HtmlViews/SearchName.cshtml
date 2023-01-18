@@ -1,0 +1,47 @@
+﻿@using EDSDoctorsApp.Resources
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - Find By Name</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="Sticky/styles/highlights/highlight_orange.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center header-auto-showx">
+            <i class="header-title"><img class="img-fluidx ps-3 pe-3" style="height:30px" src="Sticky/images/eDoctorGroupLight.png"></i>
+            <a href="hybrid:GotoSearch" data-back-button class="header-icon header-icon-1 btnback"><i class="fas fa-arrow-@AppResources.dir3"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+        </div>
+        <div class="page-content header-clear-medium">
+            <div class="content">
+                <h1 class="font-26 mb-n1">@AppResources.FindADoctor</h1>
+                <p class="font-14 mb-0 opacity-70 fw-bold color-orange-light">@AppResources.EnterDoctorName</p>
+            </div>
+            <div class="card-style search-box search-header bg-theme mt-0">
+                <i class="fa fa-search"></i>
+                <input type="text" id="search" class="search-box border-0 inpSearch font-14 SearchTxt" placeholder="@AppResources.Search" data-search>
+            </div>
+
+            <div class="content">
+                <a class="btn btn-s bg-orange-light btn-full rounded-sm text-uppercase font-800 rounded-l font-14 mt-3 mb-3 ShowMoreBtn" onclick="Searchbtn(this)" href="">@AppResources.Search</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script>function Searchbtn(sender) {
+            $(sender).attr('href', 'hybrid:gotosearchresultsname?DoctorName=' + $('.SearchTxt').val().replace(/\W/g, "").trim());
+        }</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+﻿@*@model dynamic*@
+@using EDSDoctorsApp.Resources
+<!DOCTYPE html>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - My Profile</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="Sticky/fonts/css/fontawesome-all.min.css" />
+    <link href="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+    <link rel="manifest"
+          href="_manifest.json"
+          data-pwa-version="set_in_manifest_and_pwa_js" />
+    <link rel="apple-touch-icon"
+          sizes="180x180"
+          href="Sticky/app/icons/icon-192x192.png" />
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light"
+      data-highlight="highlight-dark"
+      data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center header-auto-showx">
+            <i class="header-title"><img class="img-fluidx ps-3 pe-3" style="height:30px" src="Sticky/images/eDoctorGroupLight.png"></i>
+            @*<a href="page-forgot-1.html#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a>*@
+        </div>
+        <div class="page-content header-clear-medium">
+            <div class="card card-style">
+                <div class="content mb-0">
+                    <form action="hybrid:DoSaveProfileData" id="ProfileForm" onsubmit="$('#submit-button').attr('disabled', 'disabled'); LoaderShow();">
+                        <h2 class="mb-4 color-orange-light">@AppResources.BasicInformation</h2>
+                        <input type="text" id="hiddenImg" name="PatientsImage" style="display:none" />
+                        <input class="hfPGUID" type="hidden" value="@*@Model.Data.Patient.PatientsGUID*@" />
+                        <canvas width="300" height="300" id="mycanvas" style="display: none;"></canvas>
+                        
+                        <input type="hidden" id="PatientsEmail" name="PatientsEmail" value="@*@Model.Data.Patient.PatientsEmail*@" />
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="PatientsName" class="form-control validate-name font-14" id="PatientsName" placeholder="Name" value="" required>
+                            <label for="PatientsName" class="color-highlight font-14 mt-1">@AppResources.Name</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="PatientsPhone" class="form-control validate-field font-14" id="PatientsPhone" placeholder="@AppResources.Phone" value="" required>
+                            <label for="PatientsPhone" class="color-highlight font-14 mt-1">@AppResources.Phone</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <em>@AppResources.required</em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon mb-4">
+                            <i class="fa fa-calendar"></i>
+                            <input type="date" style="background-color:white;-webkit-appearance: none;" id="PatientsDOB" name="PatientsDOB" value="">
+                            <label for="PatientsDOB" class="color-highlight font-14 mt-1">@AppResources.Dateofbirth</label>
+                            <i class="fa fa-times disabled invalid color-red-dark"></i>
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fas fa-transgender"></i>
+                            <label for="form5" class="color-highlight font-14 mt-1">@AppResources.Gender</label>
+                            <input type="hidden" class="hfGender" value="@*@Model.Data.Patient.PatientsGender*@" />
+                            <select id="form5" name="PatientsGender" class="form-control ddlgender">
+                                <option value="default" disabled selected>
+                                    @AppResources.SelectGender
+                                </option>
+                                <option value="Male">@AppResources.Male</option>
+                                <option value="Female">@AppResources.Female</option>
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fas fa-award"></i>
+                            <label for="form5" class="color-highlight font-14 mt-1">@AppResources.Degree</label>
+                            <input type="hidden" class="hfGender" value="@*@Model.Data.Doctor.DoctorDegree*@" />
+                            <select id="form5" name="DoctorDegree" class="form-control ddlgender">
+                                <option value="default" disabled selected>
+                                    @AppResources.SelectValue
+                                </option>
+                                <option value="Option 1">Option 1</option>
+                                <option value="Option 2">Option 2</option>
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                        <div class="input-style input-style-active has-borders has-icon validate-field mb-4">
+                            <i class="fas fa-certificate"></i>
+                            <label for="form5" class="color-highlight font-14 mt-1">@AppResources.Speciality</label>
+                            <input type="hidden" class="hfSpeciality" value="@*@Model.Data.Doctor.Speciality*@" />
+                            <select id="form5" name="DoctorSpeciality" class="form-control ddlSpeciality">
+                                <option value="default" disabled selected>
+                                    @AppResources.SelectValue
+                                </option>
+                                <option value="Option 1">Option 1</option>
+                                <option value="Option 2">Option 2</option>
+                            </select>
+
+                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                            <i class="fa fa-check disabled invalid color-red-dark"></i>
+                            <em></em>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="toast-main" class="toast toast-tiny toast-container toast-bottom bg-orange-light" data-bs-delay="2000" data-autohide="true">
+            @*<i class="fa fa-savex fa-spinx me-3"></i>*@
+            <i class="toast-message"></i>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+
+    <script src="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.js"></script>
+    <script>
+        function convertImagetoBytes()
+        {
+            
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#PatientsDOB').datepicker({ 
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                clearBtn: true,
+            });
+            $(".ddlgender > [value=" + $('.hfGender').val() + "]").attr("selected", "true");
+        });
+        function ChangeProfile(sender)
+        {
+             debugger;
+                console.log($('.hfPGUID').val());
+            var reader = new FileReader();
+        reader.onload = function () { $("#userImg").attr("src", reader.result); $("#hiddenImg").attr("value", reader.result); }
+        reader.readAsDataURL(sender.files[0]);
+                var files = sender.files[0];
+                $.ajax({
+                    type: "post",
+                    async: true,
+                    dataType: "json",
+                    url: GlobalUrl + "ChangeProfilePicture",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "file": files, "PGUID": $('.hfPGUID').val() }),
+                    success: function (response, $Id) {
+                        debugger;
+                    },
+                    error: function (error) {
+                        var g = error;
+                    },
+                });
+        }
+        function ChangeLang(sender) {
+            debugger;
+            var Lang = $(sender).val();
+            window.location = "hybrid:DoChangeLanguage?PGUID=" + $('.hfPGUID').val() + "&Lang=" + Lang;
+        }
+
+        function Uploadimg() {
+            $('.upload-file').trigger('click');
+        }</script>
+</body>
+</html>

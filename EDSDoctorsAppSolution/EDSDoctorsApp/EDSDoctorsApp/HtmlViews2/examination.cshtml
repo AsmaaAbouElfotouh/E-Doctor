@@ -1,0 +1,591 @@
+@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp
+@using EDSDoctorsApp.APIs.Patients;
+@using Xamarin.Essentials;
+@model (List<CustomFieldVM>,string[],string,List<ExaminationInvestigation>,List<EDSDoctorsApp.APIs.Account.DropDownListModel>,List<EDSDoctorsApp.APIs.Account.DropDownListModel>,List<EDSDoctorsApp.APIs.Account.DropDownListModel>,List<ExaminationTreatment>,string,List<EDSDoctorsApp.APIs.Account.VmAttachments>)
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor - New Examination</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky53/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky53/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky53/fonts/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="Sticky53/styles/select2.min.css">
+    @*<link rel="stylesheet" type="text/css" href="Sticky/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">*@
+    <link href="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+    <script src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky53/scripts/select2.min.js"></script>
+    @*    <script type="text/javascript" src="Sticky53/scripts/bootstrap3-typeahead.min.js"></script>
+        <script type="text/javascript" src="Sticky53/scripts/bootstrap-tagsinput.min.js"></script>*@
+    <script type="text/javascript" src="Sticky53/scripts/moment.min.js"></script>
+    <script src="Sticky/plugins/BootstrapDatePicker/bootstrap-datepicker.min.js"></script>
+
+
+    <style>
+        .select2-container {
+            width: 100% !important;
+            padding: 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body class="theme-light" data-highlight="highlight-red" data-gradient="body-default">
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="header header-fixed header-logo-center " id="headerScope">
+            <a href="#" class="header-title">New Examination</a>
+            <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+            <!-- <a href="#" data-toggle-theme class="header-icon header-icon-4"><i class="fas fa-lightbulb"></i></a> -->
+        </div>
+        <div class="page-content header-clear-medium">
+            <div class="card card-style">
+                <div class="content">
+                    <p class=" mb-n3 pb-0 text-truncate">@App.PatientEMR.PatientsMRNo</p>
+                    <h2 class=" pt-3 pb-3 text-truncate">@App.PatientEMR.PatientsName</h2>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-calendar"></i>@App.PatientEMR.PatientsDOB</p>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-@(App.PatientEMR.PatientsGender == "Male" ? "mars" : "venus")"></i>@App.PatientEMR.PatientsGender</p>
+                    <p class=" font-13 opacity-80 mt-n3"><i class="far fa-phone"></i>@App.PatientEMR.PatientsMobile</p>
+                    <!-- <p class=" font-13 opacity-80"><i class="fa fa-map-marker-alt"></i> Melbourne, Victoria, Australia Collins Street</p> -->
+                </div>
+            </div>
+            <form action="hybrid:addeditexamination" class="AddExaminationForm" onsubmit="$('.BtnSave').attr('disabled', 'disabled'); LoaderShow();">
+                <input hidden name="treatments" id="treatments" />
+                <input hidden name="examID" id="examID" value="@Model.Item9" />
+                <div class="accordion" id="accordionExample">
+                    @{
+                        foreach (string section in Model.Item2)
+                        {
+                            var x = section;
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="btn accordion-btn no-effect" type="button" data-bs-toggle="collapse" data-bs-target="#@x.Split(' ')[0]" aria-expanded="true" aria-controls="@x.Split(' ')[0]">
+                                        @x
+                                    </button>
+                                </h2>
+                                <div id="@x.Split(' ')[0]" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        @{
+                                            int i = 0;
+                                        }
+                                        @foreach (CustomFieldVM item in Model.Item1)
+                                        {
+                                            if (item.ExaminationsDataSection == section)
+                                            {
+                                                if (item.FieldType == "Text")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <input class="form-control" type="text" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" placeholder="@item.FieldType" value="@item.ExaminationsDataValue" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                if (item.FieldType == "DropDownList")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <select class="SearchSelect" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue">
+                                                                    @foreach (var opt in item.FieldValue.Split('|'))
+                                                                    {
+                                                                        <option value="@opt">@opt</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                if (item.FieldType == "MultiLine")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <textarea class="form-control" placeholder="Enter your message" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                if (item.FieldType == "CheckBox")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <input type="checkbox" class="form-check-input" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                if (item.FieldType == "Date")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                    <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                    <input class="form-control datepicker" type="text" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue">
+                                                                    <span class="input-group-addon"> <i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                                if (item.FieldType == "Time")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <input id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue" class="form-control" type="time" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                if (item.FieldType == "Multi Select")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <select class="SearchSelect" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue" multiple="multiple">
+                                                                    @foreach (var opt in item.FieldValue.Split('|'))
+                                                                    {
+                                                                        <option value="@opt">@opt</option>
+                                                                    }
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                if (item.FieldType == "Tagbox")
+                                                {
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="" class="color-highlight">@item.ExaminationsDataField</label>
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].id" value="@(item.Id??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRhid" value="@item.ExaminationsDataRhid" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataExaminationId" value="@(item.ExaminationsDataExaminationId??Guid.Empty)" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataSection" value="@item.ExaminationsDataSection" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataField" value="@item.ExaminationsDataField" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataIsAbnormal" value="@item.ExaminationsDataIsAbnormal" />
+                                                                <input type="text" class="hidden" id="id @i" name="ExaminationsDatum[@i].ExaminationsDataRank" value="@item.ExaminationsDataRank" />
+                                                                <input type="text" class="form-control" id="ExaminationsDataValue @i" name="ExaminationsDatum[@i].ExaminationsDataValue" value="@item.ExaminationsDataValue" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+                                            i++;
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Investigation" aria-expanded="false" aria-controls="Investigation">
+                                Investigations
+                            </button>
+                        </h2>
+
+                        <div id="Investigation" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <table class="table text-center text-black-50 rounded-sm shadow-l" style="overflow: auto;table-layout:auto">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Name</th>
+                                            <th>Type</th>
+                                            <th>Notes</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="invtbody">
+                                        @foreach (var investigation in Model.Item4)
+                                        {
+                                            <tr>
+                                                <td width="30%">@investigation.ExaminationInvestigationsName</td>
+                                                <td>@investigation.ExaminationInvestigationsType</td>
+                                                <td>@investigation.ExaminationInvestigationsNotes</td>
+                                                <td width='5%'><a data-menu='newInvestigations' onclick="editinv('@investigation.ExaminationInvestigationsName','@investigation.ExaminationInvestigationsType','@investigation.ExaminationInvestigationsNotes','@investigation.Id')"><i class='fa fa-edit' ></i></a></td>
+                                                <td width='5%'><i class='fa fa-trash color-red-dark' onclick=window.location = 'hybrid:deleteinvestigation?invID=@investigation.Id'></i></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <div class="d-flex text-center mb-4">
+                                    <div class="me-3 speach-icon">
+                                        <a class="bg-green-dark ms-2" data-menu="newInvestigations"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Treatment" aria-expanded="false" aria-controls="Treatment">
+                                Treatments
+                            </button>
+                        </h2>
+
+                        <div id="Treatment" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div id="TreatmentsDiv">
+                                    @foreach (var Treatment in Model.Item8)
+                                    {
+                                        <text>-</text>
+
+                                        @Treatment.ExaminationTreatmentsDrugName
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsConcentration
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsForm
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsRoute
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsDosage
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsUnit
+
+                                        <text>, </text>
+
+                                        @Treatment.ExaminationTreatmentsFrequency
+
+                                        <text> Hours, </text>
+
+                                        @Treatment.ExaminationTreatmentsDuration
+
+                                        <text> Days<br />Notes:</text>
+
+                                        @Treatment.ExaminationTreatmentsNotes
+
+                                        <text><br /><br /></text>
+                                        <div class="col-3">
+                                            <div class="d-flex text-center mb-4">
+                                                <div class="me-3 speach-icon">
+                                                    <a class="color-dark-dark ms-2" data-menu="newTreatments"><i class="fa fa-edit"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="d-flex text-center mb-4">
+                                                <div class="me-3 speach-icon">
+                                                    <a class="bg-highlight-dark ms-2"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="d-flex text-center mb-4">
+                                    <div class="me-3 speach-icon">
+                                        <a class="bg-green-dark ms-2" data-menu="newTreatments"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Attachments" aria-expanded="false" aria-controls="Attachments">
+                                Attachments
+                            </button>
+                        </h2>
+                        <div id="Attachments" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div id="AttachmentsDiv">
+                                    <div class="row row-auto mb-0">
+                                        @foreach (var Attachment in Model.Item10)
+                                        {
+                                            <div class="px-1">
+                                                <div class="btn btn-m mb-3 rounded-xl text-uppercase font-900 shadow-s bg-blue-dark" style="word-wrap: break-word;">
+                                                    @Attachment.AttachmentsName
+                                                </div>
+                                                <i class="fa fa-trash color-red-dark" onclick="window.location = 'hybrid:deleteexamfiles?FileID=@Attachment.Id&ParentID=@Model.Item9'"></i>
+                                            </div>
+                                        }
+                                        <div class="d-flex text-center mb-3">
+                                            <div class="me-3 speach-icon">
+                                                <a href="hybrid:douploadexamfiles?ParentID=@Model.Item9&AccountsID=@SecureStorage.GetAsync("AccountID").Result&Type=Examination" class="bg-green-dark ms-2" data-menu="menu-upload"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" data-back-button class="BtnSave btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="newInvestigations" class="menu menu-box-bottom menu-box-detached">
+        <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+        </div>
+        <div class="menu-title mt-0 pt-0">
+            <h1>Add/Edit Investigations</h1>
+            <a href="#" class="close-menu">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+        <div class="divider divider-margins mb-n2"></div>
+
+        <div class="content">
+            <div class="list-group">
+                <form action="hybrid:addeditexamination">
+                    <!-- SELECT Chief complaint -->
+                    <input hidden name="invid" id="invid" />
+                    <input hidden name="invs" id="invs" />
+                    <input hidden name="examID" value="@Model.Item9" />
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="ExaminationInvestigationsName" class="color-highlight">Name</label>
+                        <input name="ExaminationInvestigationsName" type="text" id="invnameid" placeholder="Name" />
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="ExaminationInvestigationsType" class="color-highlight">Type</label>
+                        <select name="ExaminationInvestigationsType" id="invtypeid">
+                            <option value="" disabled selected>Type</option>
+                            <option value="Lab">Lab</option>
+                            <option value="Radiology">Radiology</option>
+                        </select>
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="ExaminationInvestigationsNotes" class="color-highlight">Notes</label>
+                        <input name="ExaminationInvestigationsNotes" type="text" id="invnotesid" placeholder="Notes" />
+                    </div>
+
+                    <button id="submit-button" type="submit" onclick="AddInvestigations(document.getElementById('invnameid'),document.getElementById('invtypeid'),document.getElementById('invnotesid'))" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="newTreatments" class="menu menu-box-bottom menu-box-detached">
+        <div class="divider mx-auto mt-3 bg-gray-dark opacity-30 rounded-s mb-n1" style="height:5px; width:50px;">
+        </div>
+        <div class="menu-title mt-0 pt-0">
+            <h1>Add New Treatments</h1>
+            <a href="#" class="close-menu">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+        <div class="divider divider-margins mb-n2"></div>
+
+        <div class="content">
+            <div class="list-group">
+                <form>
+                    <!-- SELECT Chief complaint -->
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsName" class="color-highlight">Drug Name</label>
+                        <input name="TreatmentsName" type="text" id="treatmentsnameid" placeholder="Drug Name" />
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsConcentration" class="color-highlight">Concentration</label>
+                        <input name="TreatmentsConcentration" type="text" id="treatmentsconcentrationid" placeholder="Concentration" />
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsForm" class="color-highlight">Form</label>
+                        <select name="TreatmentsForm" id="treatmentsformid">
+                            <option value="" hidden disabled selected>Form</option>
+                            @foreach (var form in Model.Item5)
+                            {
+                                <option value="@form.Name">@form.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsRoute" class="color-highlight">Route</label>
+                        <select name="TreatmentsRoute" id="treatmentsrouteid">
+                            <option value="" hidden disabled selected>Route</option>
+                            @foreach (var form in Model.Item6)
+                            {
+                                <option value="@form.Name">@form.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsDosage" class="color-highlight">Dosage</label>
+                        <input name="TreatmentsDosage" type="text" id="treatmentsdosageid" placeholder="Dosage" />
+                    </div>
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsUnit" class="color-highlight">Unit</label>
+                        <select name="TreatmentsUnit" id="treatmentsunitid">
+                            <option value="" hidden disabled selected>Unit</option>
+                            @foreach (var form in Model.Item7)
+                            {
+                                <option value="@form.Name">@form.Name</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsHours" class="color-highlight">Every # Hours</label>
+                        <input name="TreatmentsHours" type="number" id="treatmentshoursid" placeholder="Every # Hours" />
+                    </div>
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsDays" class="color-highlight">For # Days</label>
+                        <input name="TreatmentsDays" type="number" id="treatmentsdaysid" placeholder="For # Days" />
+                    </div>
+
+                    <div class="input-style no-borders has-icon validate-field mb-4">
+                        <label for="TreatmentsNotes" class="color-highlight">Notes</label>
+                        <input name="TreatmentsNotes" type="text" id="treatmentsnotesid" placeholder="Notes" />
+                    </div>
+
+                    <button id="submit-button" type="button" onclick="AddTreatments(document.getElementById('treatmentsnameid'),document.getElementById('treatmentsconcentrationid'),document.getElementById('treatmentsformid'),document.getElementById('treatmentsrouteid'),document.getElementById('treatmentsdosageid'),document.getElementById('treatmentsunitid'),document.getElementById('treatmentshoursid'),document.getElementById('treatmentsdaysid'),document.getElementById('treatmentsnotesid'))" data-back-button class="btn btn-m btn-full mt-4 mb-4 rounded-l shadow-xl bg-highlight font-900 font-14 text-uppercase w-100">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const InvestigationsArray = [];
+        const TreatmentsArray = [];
+        function AddInvestigations(invname,invtype,invnotes)
+        {
+
+            debugger;
+            var invName = invname.value;
+            var invType = invtype.value;
+            var invNotes = invnotes.value;
+            var invId = invid.value;
+            //$('#invtbody').append("<tr><td width='30%'>" + invName + "</td><td>" + invType +"</td><td>" + invNotes + "</td><td width='5%'><a data-menu='editLocation'><i class='fa fa-edit'></i></a></td><td width='5%'><i class='fa fa-trash color-red-dark' onclick=window.location = 'hybrid:deleteinvestigation?'></i></td></tr>");
+            InvestigationsArray.push(JSON.stringify({invname:invName,invtype:invType,invnotes:invNotes,invid:invId}));
+            var stringifiedArray = JSON.stringify(InvestigationsArray);
+            $('#invs').val(stringifiedArray);
+        }
+
+        function editinv(invname,invtype,invnotes,invid)
+        {
+            var invnameinput = document.getElementById('invnameid');
+            var invtypeinput = document.getElementById('invtypeid');
+            var invnotesinput = document.getElementById('invnotesid');
+            var invidinput = document.getElementById('invid');
+            invnameinput.value = invname;
+            invtypeinput.value = invtype;
+            invnotesinput.value = invnotes;
+            invidinput.value = invid;
+        }
+
+         function AddTreatments(treatmentname,treatmentconcentration,treatmentform,treatmentroute,treatmentdosage,treatmentunit,treatmenthours,treatmentdays,treatmentnotes)
+        {
+
+            debugger;
+            var TreatmentName = treatmentname.value;
+            var TreatmentCon = treatmentconcentration.value;
+            var TreatmentForm = treatmentform.value;
+            var TreatmentRoute = treatmentroute.value;
+            var TreatmentDosage = treatmentdosage.value;
+            var TreatmentUnit = treatmentunit.value;
+            var TreatmentHours = treatmenthours.value;
+            var TreatmentDays = treatmentdays.value;
+            var TreatmentNotes = treatmentnotes.value;
+
+            $('#TreatmentsDiv').append("-" + TreatmentName + ", " + TreatmentCon + ", " + TreatmentForm + ", " + TreatmentRoute + ", " + TreatmentDosage + ", " + TreatmentUnit + ", " + TreatmentHours + " Hours, " + TreatmentDays + " Days<br />Notes:" + TreatmentNotes + "<br /><br />");
+            TreatmentsArray.push(JSON.stringify({treatmentname:TreatmentName,treatmentconcentration:TreatmentCon,treatmentform:TreatmentForm,treatmentroute:TreatmentRoute,treatmentdosage:TreatmentDosage,treatmentunit:TreatmentUnit,treatmenthours:TreatmentHours,treatmentdays:TreatmentDays,treatmentnotes:TreatmentNotes}));
+            var stringifiedArray = JSON.stringify(TreatmentsArray);
+            $('#treatments').val(stringifiedArray);
+        }
+
+        $(window).load(function() {
+            $('.SearchSelect').select2({ width: 'resolve' });
+            $('.datepicker').datepicker({
+                format: "dd/mm/yyyy",
+                autoclose: true,
+                clearBtn: true,
+            });
+            $('.taginpuy').tagsinput();
+        });
+
+
+    </script>
+
+
+</body>

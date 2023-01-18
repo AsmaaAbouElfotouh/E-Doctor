@@ -1,0 +1,156 @@
+﻿@using EDSDoctorsApp.Resources
+@using EDSDoctorsApp.ViewModels
+@model EDSDoctorsApp.ViewModels.VMDoctors
+
+<!DOCTYPE HTML>
+<html lang="en" dir="@AppResources.dir">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>eDoctor Patient - Search Results</title>
+    <link rel="stylesheet" type="text/css" href="@string.Concat("Sticky/styles/bootstrap",AppResources.dir2,".css")">
+    <link href="Sticky/fonts/css.css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Sticky/fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="Sticky/app/icons/icon-192x192.png">
+    <link href="Sticky/styles/highlights/highlight_dark.css" rel="stylesheet" />
+</head>
+<body class="theme-light" data-highlight="highlight-dark" data-gradient="body-default">
+    <div id="page">
+        <div class="header header-fixed header-logo-center header-auto-showx">
+            <i class="header-title"><img class="img-fluidx ps-3 pe-3" style="height:30px" src="Sticky/images/eDoctorGroupLight.png"></i>
+            <a data-href="hybrid:@Model.Search.LastView" data-back-button class="header-icon header-icon-1 btnback"><i class="fas fa-arrow-@AppResources.dir3"></i></a>
+            <a href="hybrid:GotoHome" class="header-icon header-icon-4"><i class="fas fa-home"></i></a>
+
+        </div>
+        <div class="page-content header-clear-medium mt-n4x ">
+            <div class="disabled">
+                <span class="txtSpeciality">@Model.Search.Speciality</span>
+                <span class="txtCountry">@Model.Search.Country</span>
+                <span class="txtCity">@Model.Search.City</span>
+                <span class="txtDistrict">@Model.Search.District</span>
+                <span class="txtLang">@Model.Search.Lang</span>
+                <span class="txtPage">@Model.Search.Page</span>
+                <span class="txtSort">@Model.Search.Sort</span>
+                <span class="txtCareerLvl">@Model.Search.CareerLevel</span>
+                <span class="txtGender">@Model.Search.Gender</span>
+                <span class="txtPGUID">@Model.Search.PGUID</span>
+            </div>
+            @*https://www.enableds.com/products/sticky/v42/page-finance-transactions.html*@
+            <div class="card-style search-box search-header bg-theme me-3 ms-3">
+                <i class="fa fa-search"></i>
+                <input type="text" id="search" value="@Model.Search.DoctorName" class="search-box border-0 inpSearch font-14 SearchTxt" data-placeholder="@AppResources.Search" data-search onkeyup="Search(this)" data-value="@Model.Search.DoctorName">
+                <a data-menu="menu-sidebar-left-filter" class="color-highlight"><i class="fa-filter fas"></i></a>
+            </div>
+
+            @if (Model.Doctors.Count() != 0)
+            {
+                <div class="DoctorsContent">
+                    @foreach (var Doctor in Model.Doctors)
+                    {
+                        <div class="content visitcards">
+                            <div class="bg-theme rounded-sm mb-n5 ms-3 overflow-hidden under-slider-btn d-inline-block shadow-l text-center">
+                                <span class="bg-orange-light font-10 d-block mb-2 px-3 line-height-xs py-1">@Doctor.NextAvailable.ToString("MMM")</span>
+                                <span class="font-20 font-800 d-block mb-n3 line-height-s">@Doctor.NextAvailable.ToString("dd")</span><br />
+                            </div>
+
+                            <div class="float-end mt-1 mb-n5 me-3 overflow-hidden under-slider-btn d-inline-block text-center">
+                                @if (string.IsNullOrWhiteSpace(Doctor.UsersImageMIME))
+                                {
+                                    if (Doctor.ResourcesGender == "Male")
+                                    {
+                                        <img src="Sticky/images/avatars/2s.png" style="width: 56px;height: 56px;" class="bg-highlight rounded-xl border-s border-highlight" data-src="">
+                                    }
+                                    else
+                                    {
+                                        <img src="Sticky/images/avatars/10s.png" style="width:56px;height:56px;" class="bg-highlight rounded-xl border-s border-highlight" data-src="">
+
+                                    }
+                                }
+                                else
+                                {
+                                    <img src="" style="width:56px;height:56px;" class="bg-highlight rounded-xl Rimg border-s border-highlight" data-src="@Doctor.UsersImage">
+                                }
+
+                            </div>
+
+                            <div class="card card-style mx-0 mb-3" data-card-heightx="175">
+                                <div class="card-bottomx mt-4 p-3">
+                                    <span class="d-block mt-2 lh-sm color-black font-900 font-18">@Doctor.ResourcesName</span>
+                                    <span class="d-block lh-sm color-black font-600 font-14">@Doctor.SpecialtiesName</span>
+                                    <span class="d-block lh-sm color-black font-14">@Doctor.CareerLevelsName</span>
+                                    <span class="d-block font-13 mb-n1">
+                                        <i class="fa fa-map-marker pe-2"></i>
+                                        @Doctor.Address
+                                    </span>
+                                    <div class="row mt-1 mb-1">
+                                        <div class="col-12">
+                                            <a href="" class="btn btn-s bg-orange-light btn-full rounded-sm text-uppercase font-800 rounded-l font-14" data-SchedualData="hybrid:DoBookNearestSearchResults?RGUID=@Doctor.ResourcesGUID&LGUID=@Doctor.LocationsGUID&SID=@Doctor.SchedulesID&DoctorName=@Doctor.ResourcesName&Speciality=@Doctor.SpecialtiesName&Career=@Doctor.CareerLevelsName&Address=@Doctor.Address&Start=@Doctor.NextAvailable&End=@Doctor.End" onclick="BookNearest(this)">@AppResources.BookNow @Doctor.NextAvailable.ToString("dddd dd/MM/yyyy hh:mm tt")</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-1 mb-1">
+                                        <div class="col-12">
+                                            <a href="" class="btn btn-s btn-border border-highlight color-highlight btn-full rounded-sm text-uppercase font-800 rounded-l font-14" data-link="hybrid:GotoDoctorDetailsSearchResults?RGUID=@Doctor.ResourcesGUID&LGUID=@Doctor.LocationsGUID&IsFav=@Doctor.AddStatus" onclick="MoreInfo(this)">@AppResources.MoreInfo</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+                if (Model.Doctors.Count() >= 10)
+                {
+                    <div class="content">
+                        <a class="btn btn-s bg-highlight btn-full rounded-sm text-uppercase font-800 rounded-l font-14 ShowMoreBtn" onclick="ShowMore()">@AppResources.ShowMore</a>
+                    </div>
+                }
+            }
+        </div>
+        <div id="menu-sidebar-left-filter" class="bg-white menu menu-box-left" data-menu-width="250">
+            <div class="me-3 ms-3 mt-4">
+                <span class="text-uppercase font-900 font-11 color-orange-light"><i class="fa fa-map-marker pe-2"></i>@AppResources.Location</span>
+                <div class="input-style has-borders no-icon mb-4">
+                    <label for="form5" class="color-highlight">Select A Value</label>
+                    <select id="form5" onchange="hybrid:DoSort?field=Date" name="LocationList" id="LocationListID" style="background-color:white;-webkit-appearance: none;">
+                        <option value="default" disabled="" selected="">@AppResources.Location</option>
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                    </select>
+                    <span><i class="fa fa-chevron-down"></i></span>
+                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                    <em></em>
+                </div>
+                <span class="text-uppercase font-900 font-11 color-orange-light"><i class="fa fa-sort me-2"></i>@AppResources.Status</span>
+                <div class="input-style has-borders no-icon mb-4">
+                    <label for="form5" class="color-highlight">Select A Value</label>
+                    <select id="form5" onchange="hybrid:DoSort?field=Date" name="LocationList" id="LocationListID" style="background-color:white;-webkit-appearance: none;">
+                        <option value="default" disabled="" selected="">@AppResources.Status</option>
+                        <option value="Option 1">Option 1</option>
+                        <option value="Option 2">Option 2</option>
+                    </select>
+                    <span><i class="fa fa-chevron-down"></i></span>
+                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                    <em></em>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="Sticky/scripts/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/custom.js"></script>
+    <script type="text/javascript" src="Sticky/plugins/Moment/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/EDS.js"></script>
+    <script type="text/javascript" src="Sticky/scripts/SearchResults.js"></script>
+    <script>
+        var MoreInfoo="@AppResources.MoreInfo";
+        var BookNow="@AppResources.BookNow";
+    </script>
+</body>
+</html>

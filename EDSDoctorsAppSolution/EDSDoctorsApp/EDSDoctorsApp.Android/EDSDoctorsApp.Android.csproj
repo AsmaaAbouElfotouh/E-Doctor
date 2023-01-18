@@ -1,0 +1,3335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67DC0700-CBFC-4AC6-BDE8-98B2F76E9781}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EDSDoctorsApp.Droid</RootNamespace>
+    <AssemblyName>EDSDoctorsApp.Android</AssemblyName>
+    <Deterministic>True</Deterministic>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp">
+      <Version>2.80.3</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>2.80.3</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.8.116</Version>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt">
+      <Version>6.16.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7jsDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7ksDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7nsDI.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7osDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7psDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7qsDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK1dSBYKcSV-LCoeQqfX1RYOo3qPZ7rsDJT9g.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qN67lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qNK7lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qNq7lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qO67lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xK3dSBYKcSV-LCoeQqfX1RYOo3qPK7lqDY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdg18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdh18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdi18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdj18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdo18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCds18Q.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZY4lCdv18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdg18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdh18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdi18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdj18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdo18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSds18Q.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZclSdv18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydg18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydh18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydi18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydj18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydo18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklyds18Q.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZklydv18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkidg18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkidh18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkidi18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkidj18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkido18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkids18Q.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKwdSBYKcSV-LCoeQqfX1RYOo3qPZZMkidv18Smxg.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwkxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmhduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmRduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwmxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwkxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmhduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmRduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwkxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmhduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmRduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwmxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwkxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwlxdu.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwmBduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwmhduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwmRduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\6xKydSBYKcSV-LCoeQqfX1RYOo3iu4nwmxduz8A.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc-CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc0CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc1CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc2CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc3CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc5CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51S7ACc6CsQ.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc-CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc0CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc1CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc2CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc3CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc5CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TjASc6CsQ.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc-CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc0CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc1CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc2CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc3CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc5CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TLBCc6CsQ.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic-CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic0CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic1CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic2CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic3CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic5CsTKlA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOjCnqEu92Fr1Mu51TzBic6CsQ.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xEIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xFIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xGIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xHIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xIIzI.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xLIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOkCnqEu92Fr1Mu51xMIzIFKw.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fBBc4.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fBBc4.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfBBc4.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfABc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfBBc4.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfBxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfCBc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfChc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfCRc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOlCnqEu92Fr1MmYUtfCxc4EsA.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu4mxK.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu4WxKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu5mxKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu72xKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu7GxKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu7mxKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\google\KFOmCnqEu92Fr1Mu7WxKOzY.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-brands-400.ttf" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-brands-400.woff" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-brands-400.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-regular-400.ttf" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-regular-400.woff" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-regular-400.woff2" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-solid-900.ttf" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-solid-900.woff" />
+    <AndroidAsset Include="Assets\Sticky\fonts\webfonts\fa-solid-900.woff2" />
+    <AndroidAsset Include="Assets\Sticky\scripts\jquery-3.6.0.min.map">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="Assets\Sticky53\fonts\webfonts\fa-brands-400.woff" />
+    <AndroidAsset Include="Assets\Sticky53\fonts\webfonts\fa-brands-400.woff2" />
+    <AndroidAsset Include="Assets\Sticky53\fonts\webfonts\fa-regular-400.woff2" />
+    <AndroidAsset Include="Assets\Sticky53\fonts\webfonts\fa-solid-900.woff" />
+    <AndroidAsset Include="Assets\Sticky53\fonts\webfonts\fa-solid-900.woff2" />
+    <AndroidAsset Include="Assets\Sticky\plugins\bootstrap-tagsinput\bootstrap-tagsinput-angular.js.exclude" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Apple_Logo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EDSDoctorsApp\EDSDoctorsApp.csproj">
+      <Project>{B45022C3-0470-4D12-8074-8738E9BBF470}</Project>
+      <Name>EDSDoctorsApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\app\icons\icon-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\app\icons\icon-192x192.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\fonts\css.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\fonts\css\fontawesome-all.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\Doctoury.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\DoctouryIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\profile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\eDoctorGroupDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\eDoctorGroupIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\eDoctorGroupIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\eDoctorGroupLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\preload-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\10s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\12s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\5s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\6s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\7s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\avatars\8s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\careers\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\careers\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\careers\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\careers\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\flags\Germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\flags\India.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\flags\Italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\flags\Spain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\flags\United-States.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\250x250\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\250x250\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\250x250\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\500x500\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\500x500\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\500x500\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\500x500\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\500x500\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\food\full\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\framework\pay-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\framework\pay-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\framework\pay-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\icons\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\icons\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\icons\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\icons\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\icons\documenticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\6wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\8wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\medical\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\_bg-infinite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\0l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\0s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\0t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\10w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\11w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\12t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\12w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\13t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\13w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\14s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\14t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\14w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\15s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\15t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\15w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\16w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\17s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\17t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\17w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\18s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\18t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\18w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\19s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\19t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\19w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\20s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\20t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\20w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\21s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\21t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\21w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\22w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\23w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\24l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\24s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\24t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\24w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\25l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\25s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\25t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\25w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\26l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\26s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\26t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\26w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\27l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\27s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\27t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\27w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\28w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\29l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\29s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\29t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\29w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\30l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\30s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\30t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\30w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\31l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\31s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\31t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\31w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\32l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\32s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\32t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\32w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\6w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\0t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\1small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\2small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\3s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\3small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\faces\4small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\pictures\isolated\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\products\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\products\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\splash\apple-touch-icon-120x120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\splash\apple-touch-icon-72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\splash\apple-touch-icon-76x76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\1a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\1w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\2a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\2w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\store\3a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\3.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\4.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\5.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\images\undraw\6.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\php\contact.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\before-after\before-after.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\before-after\before-after.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\BootstrapDatePicker\bootstrap-datepicker.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\BootstrapDatePicker\bootstrap-datepicker.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\charts\charts-call-charts.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\charts\charts-call-graphs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\charts\charts.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\countdown\countdown.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\filterizr\filterizr-call.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\filterizr\filterizr.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\filterizr\filterizr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\galleryViews\gallery-views.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\glightbox\glightbox-call.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\glightbox\glightbox.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\glightbox\glightbox.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\Moment\moment-with-locales.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\Moment\Moment.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\RateYo\jquery.rateyo.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\RateYo\jquery.rateyo.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\RateYo\starrr.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\RateYo\starrr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\custom.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\customObfuscated.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\DoctorDetails.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\EDS.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\FavDoctors.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\jquery-3.6.0.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\jquery-3.6.0.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\moment.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\MyBooking.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\SearchResults.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\underscore.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\vcard.vcf" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\VisitDetails.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\bootstrap.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\bootstraprtl.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_aqua.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_blue.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_brown.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_dark.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_grass.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_green.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_magenta.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_mint.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_night.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_orange.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_pink2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_red.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_sunny.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_teal.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\styles\highlights\highlight_yellow.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\eDoctorGroupIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Splash.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-mdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Facebook_Logo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Google_Logo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\fonts\css.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\before-after\before-after.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\before-after\before-after.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\charts\charts-call-graphs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\charts\charts.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\countdown\countdown.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\galleryViews\gallery-views.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\glightbox\glightbox-call.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\glightbox\glightbox.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\glightbox\glightbox.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\css\select2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\css\select2.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\select2.full.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\select2.full.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\select2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\select2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\af.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ar.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\az.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\bg.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\bn.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\bs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ca.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\cs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\da.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\de.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\dsb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\el.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\en.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\es.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\et.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\eu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\fa.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\fi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\fr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\gl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\he.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\hi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\hr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\hsb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\hu.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\hy.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\id.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\is.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\it.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ja.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ka.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\km.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ko.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\lt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\lv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\mk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ms.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\nb.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ne.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\nl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\pl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ps.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\pt-BR.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\pt.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ro.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\ru.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sq.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sr-Cyrl.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\sv.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\th.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\tk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\tr.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\uk.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\vi.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\zh-CN.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\plugins\select2-4.0.13\js\i18n\zh-TW.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\custom.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\embed.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\vcard.vcf" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\bootstrap.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_aqua.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_blue.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_brown.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_dark.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_grass.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_green.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_magenta.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_mint.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_night.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_orange.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_pink2.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_red.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_sunny.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_teal.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\highlights\highlight_yellow.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\app\icons\icon-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\app\icons\icon-192x192.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\fonts\css\fontawesome-all.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\photographer3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\preload-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\10s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\12s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\3s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\5s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\6s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\7s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\avatars\8s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\careers\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\careers\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\careers\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\careers\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\12t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\13t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\14t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\15t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\16t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\17t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\18t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\19t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\20t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\21t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\22m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\22t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\fitness\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\flags\Germany.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\flags\India.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\flags\Italy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\flags\Spain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\flags\United-States.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\250x250\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\250x250\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\250x250\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\500x500\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\food\full\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\framework\pay-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\framework\pay-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\framework\pay-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\1 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\isolated\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\isolated\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\isolated\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\grocery\isolated\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\icons\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\icons\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\icons\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\icons\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\14s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\15s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\16s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\17s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\18s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\19s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\20s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\21s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\22s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\listing\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\6wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\8wa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\medical\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\_bg-infinite.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\0l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\0s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\0t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\10w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\11w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\12w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\13w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\14w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\15w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\16w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\17w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\18w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\19w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\1w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\20w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\21w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\22w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\23w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\24w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\25w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\26w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\27w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\28w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\29w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\2w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\30w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\31w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\32w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\3w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\4w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\5w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\6w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\7w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\8w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9t.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\9w.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\1s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\1small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\2small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\3s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\3small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\4s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures\faces\4small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\pictures_vertical\bg9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\products\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\products\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\splash\apple-touch-icon-120x120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\splash\apple-touch-icon-72x72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\splash\apple-touch-icon-76x76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\1a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\1w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\2a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\2w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\3a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\store\3w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\1l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\1m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\1s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\2l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\2m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\2s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\3l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\3m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\3s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\4l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\4m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\4s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\5l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\5m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\5s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\6l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\6m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\6s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\7l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\7m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\7s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\8l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\8m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\9l.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\9m.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\travel\9s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\2.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\3.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\4.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\5.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\images\undraw\6.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\php\contact.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\select2.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\select2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\EDS.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\bootstrap-datetimepicker.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\moment.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\bootstrap-timepicker.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\styles\bootstrap-timepicker.min.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\bootstrap-tagsinput.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\typeahead.bundle.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\bootstrap-tagsinput\bootstrap-tagsinput.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\bootstrap-tagsinput\bootstrap3-typeahead.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\bootstrap-tagsinput\typeahead.bundle.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\bootstrap-tagsinput.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\bootstrap-tagsinput.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\typeahead.bundle.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\TagInput\bootstrap-tagsinput.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\plugins\TagInput\bootstrap-tagsinput.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\jquery-ui.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky\scripts\jquery-ui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\plugins.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\highcharts.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Sticky53\scripts\tracker.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>
